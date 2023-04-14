@@ -247,8 +247,9 @@ no documentation given
 no documentation given
 
 - atom_references
-  - Type: List[str] 
+  - Type: @Atom.id
   - Description: none given
+  - Multiple: True
   - XML: @atomRefs
 
 
@@ -299,6 +300,11 @@ no documentation given
   - XML: @spectrumRef
 
 
+### InChiString
+
+Captures the compound structure as an InChI, which allows for capturing a chemical structure as a string example: InChI=1S/C7H11N3O2/c1-10-3-5(9-4-10)2-6(8)7(11)12/h3-4,6H,2,8H2,1H3,(H,11,12)/t6-/m0/s1.
+
+
 ### CompoundIdentifierList
 
 no documentation given
@@ -320,11 +326,11 @@ no documentation given
 Captures a database identifier and reference via URI.
 
 - __identifier__
-  - Type: any
+  - Type: string
   - Description: none given
   - XML: @identifier
 - __uri__
-  - Type: any
+  - Type: url
   - Description: none given
   - XML: @URI
 
@@ -376,7 +382,7 @@ no documentation given
 
 Container for one or more controlled vocabulary definitions.
 
-- cv
+- __cv__
   - Type: [CV](#CV)
   - Description: Information about an ontology or CV source and a short 'lookup' tag to refer to.
   - XML: cv
@@ -428,7 +434,7 @@ A person's name and information on how to communicate with them.
   - Description: Name of the contact person.
   - XML: @fullname
 - url
-  - Type: xsAnyURI
+  - Type: url
   - Description: Uniform Resource Locator related to the contact person or organization.
   - XML: @url
 - address
@@ -440,7 +446,7 @@ A person's name and information on how to communicate with them.
   - Description: Home institution of the contact person.
   - XML: @organization
 - __email__
-  - Type: string
+  - Type: Email
   - Description: Email address of the contact person or organization.
   - XML: @email
 
@@ -459,7 +465,7 @@ Reference to a previously defined sourceFile.
 
 no documentation given
 
-- contact_reference
+- __contact_reference__
   - Type: [ContactReference](#ContactReference)
   - Description: Reference to a previously defined sourceFile.
   - Multiple: True
@@ -480,7 +486,7 @@ no documentation given
 
 no documentation given
 
-- acquisition_parameter_file_reference
+- __acquisition_parameter_file_reference__
   - Type: [AcquisitionParameterFileReference](#AcquisitionParameterFileReference)
   - Description: Reference to a previously defined sourceFile.
   - Multiple: True
@@ -491,7 +497,7 @@ no documentation given
 
 Information pertaining to the entire nmrML file (i.e. not specific to any part of the data set) is stored here. The FileDescriptionType element is intended to contain a summary description of the current nmrML file, for example it could say that the file has a 1D FID, a processed spectra, and a peak picked spectra. It does not point to source files or anything like that. It is intended to make it easy to determine what is inside a file without having to look for different element types etc and build a summary yourself. RawSpectrumFile would not be a good name. nmrMLInstanceSummary might be a more intuitive name.
 
-- file_content
+- __file_content__
   - Type: [ParameterGroup](#ParameterGroup)
   - Description: This summarizes the different types of spectra that can be expected in the file. This is expected to aid processing software in skipping files that do not contain appropriate spectrum types for it. It should also describe the nativeID format used in the file by referring to an appropriate CV term.
   - XML: fileContent
@@ -688,7 +694,7 @@ A reference to a previously defined ParamGroup, which is a reusable container of
 
 Container for a list of referenceableParamGroups.
 
-- referenceable_parameter_group
+- __referenceable_parameter_group__
   - Type: [ReferenceableParameterGroup](#ReferenceableParameterGroup)
   - Description: A collection of CVParam and UserParam elements that can be referenced from elsewhere in this nmrML document by using the 'paramGroupRef' element in that location to reference the 'id' attribute value of this element.
   - Multiple: True
@@ -710,7 +716,7 @@ List and descriptions of the source files this nmrML document was generated or d
 
 List and descriptions of samples.
 
-- sample
+- __sample__
   - Type: Sample
   - Description: none given
   - Multiple: True
@@ -731,15 +737,15 @@ no documentation given
 
 no documentation given
 
-- type
+- __type__
   - Type: [CVTerm](#CVTerm)
   - Description: none given
   - XML: type
-- concentration_in_sample
+- __concentration_in_sample__
   - Type: [ValueWithUnit](#ValueWithUnit)
   - Description: This element holds a value that also has a unit. Only controlled values are allowed for the unit.
   - XML: concentrationInSample
-- name
+- __name__
   - Type: [CVTerm](#CVTerm)
   - Description: none given
   - XML: name
@@ -783,7 +789,7 @@ no documentation given
   - Description: none given
   - XML: concentrationStandard
 - __original_biological_sample_reference__
-  - Type: xsAnyURI
+  - Type: url
   - Description: none given
   - XML: @originalBiologicalSampleReference
 
@@ -792,7 +798,7 @@ no documentation given
 
 List and descriptions of software used to acquire and/or process the data in this nmrML file.
 
-- software
+- __software__
   - Type: [Software](#Software)
   - Description: A software program used during the acquisition of the spectra or processing of the FID.
   - Multiple: True
@@ -847,7 +853,7 @@ Description of the source file, including location and type. The SourceFileType 
   - Description: Name of the source file, without reference to location (either URI or local path).
   - XML: @name
 - __location__
-  - Type: xsAnyURI
+  - Type: url
   - Description: URI-formatted location where the file was retrieved.
   - XML: @location
 - sha1
@@ -864,6 +870,17 @@ no documentation given
   - Type: xsIDREF
   - Description: This attribute must reference the 'id' of the appropriate sourceFile.
   - XML: @ref
+
+
+### SourceFileReferenceList
+
+no documentation given
+
+- source_file_reference
+  - Type: [SourceFileReference](#SourceFileReference)
+  - Description: Reference to a previously defined sourceFile.
+  - Multiple: True
+  - XML: sourceFileRef
 
 
 ### InstrumentConfiguration [_ParameterGroup_]
@@ -885,14 +902,14 @@ Description of a particular hardware configuration of a NMR spectrometer. For so
 
 List and descriptions of instrument configurations. At least one instrument configuration must be specified, even if it is only to specify that the instrument is unknown. In that case, the "instrument model" term is used to indicate the unknown instrument in the instrumentConfiguration.
 
-- instrument_configuration
+- __instrument_configuration__
   - Type: [InstrumentConfiguration](#InstrumentConfiguration)
   - Description: Description of a particular hardware configuration of a NMR spectrometer. For software configuration, use a ReferenceableParamGroup element.
   - Multiple: True
   - XML: instrumentConfiguration
 
 
-### BinaryDataArray [_xsBase64Binary_]
+### BinaryDataArray
 
 no documentation given
 
@@ -908,6 +925,49 @@ no documentation given
   - Type: string
   - Description: TODO format as little endian 64 bit pairs of floats, or 32 bit pairs of floats. See online documentation for decoding examples.
   - XML: byteFormat
+
+
+### Solute
+
+no documentation given
+
+- __concentration_in_sample__
+  - Type: [ValueWithUnit](#ValueWithUnit)
+  - Description: none given
+  - XML: concentrationInSample
+- __name__
+  - Type: string
+  - Description: none given
+  - XML: @name
+
+
+### Temperature
+
+A temperature and references to a unit from the unit ontology.
+
+- __temperature__
+  - Type: float
+  - Description: none given
+  - XML: @temperature
+- __temperature_uni_name__
+  - Type: string
+  - Description: none given
+  - XML: @temperatureUnitName
+- temperature_unit_id
+  - Type: xsID
+  - Description: none given
+  - XML: @temperatureUnitID
+
+
+### AdditionalSoluteList
+
+no documentation given
+
+- solute
+  - Type: [Solute](#Solute)
+  - Description: none given
+  - Multiple: True
+  - XML: solute
 
 
 ### AcquisitionDimensionParameterSet
@@ -1321,21 +1381,6 @@ no documentation given
   - Type: bool
   - Description: none given
   - XML: @positiveProjectionMethod
-
-
-## XSD-specific elements
-
-
-### xsAnyURI
-
-
-### xsBase64Binary
-
-
-### xsID
-
-
-### xsIDREF
 
 
 ## Enumerations
