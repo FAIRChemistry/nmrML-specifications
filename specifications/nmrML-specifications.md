@@ -1377,7 +1377,7 @@ no documentation given
 ## Enumerations
 
 
-#### ElementType
+### ElementType
 
 Enum containing the various Element symbols.
 
@@ -1503,7 +1503,7 @@ OG = "Og"
 ```
 
 
-#### BondOrder
+### BondOrder
 
 Enum containing allowed bond orders.
 
