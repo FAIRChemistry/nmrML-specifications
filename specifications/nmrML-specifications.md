@@ -63,7 +63,7 @@ This is the root element for the COordination Of Standards In MetabOlomicS nmrML
   - Description: Optional accession number for the nmrML document. Used for storage (for example MetaboLights) 
   - XML: @accession
 - accession_url
-  - Type: xsAnyURI
+  - Type: url
   - Description: Optional attribute for retrieva of an nmrML document. Usefull when the document has been retrieved from a public database.
   - XML: @accession_url
 - id
@@ -167,8 +167,7 @@ no documentation given
 no documentation given
 
 - __id__
-  - Type: xsID
-  - Description: An identifier unique to the file only, so that it can be referenced by the bond elements as well as by the spectrum annotations. Most people use "a1", "a2", ... , "aN".
+  - Type: string  - Description: An identifier unique to the file only, so that it can be referenced by the bond elements as well as by the spectrum annotations. Most people use "a1", "a2", ... , "aN".
   - XML: @id
 - __element_type__
   - Type: [ElementType](#ElementType)
@@ -200,8 +199,9 @@ no documentation given
 no documentation given
 
 - __atom_references__
-  - Type: list[str]
+  - Type: string
   - Description: Contains a list of atom IDs seperated by a space. The atom ids are the atoms connected by the bond. For example: "a1 a2"
+  - Multiple: True
   - XML: @atomRefs
 - __order__
   - Type: [BondOrder](#BondOrder)
@@ -295,7 +295,7 @@ no documentation given
   - Description: A list of annotated peak clusters in the spectrum and the atoms that they correspond to.
   - XML: atomAssignmentList
 - __spectrum_reference__
-  - Type: xsIDREF
+  - Type: @Spectrum.id
   - Description: A reference to the id of the spectrum that this annotation is for.
   - XML: @spectrumRef
 
@@ -348,7 +348,7 @@ no documentation given
   - Description: A list of the quantified chemical compounds and the associated information about clusters of peaks in the spectrum.
   - XML: quantifiedCompoundList
 - __spectrum_reference__
-  - Type: xsIDREF
+  - Type: @Spectrum.id
   - Description: A reference to the id of the spectrum that this annotation is for.
   - XML: @spectrumRef
 
@@ -393,8 +393,7 @@ Container for one or more controlled vocabulary definitions.
 Information about an ontology or CV source and a short 'lookup' tag to refer to.
 
 - __id__
-  - Type: xsID
-  - Description: The short label to be used as a reference tag with which to refer to this particular Controlled Vocabulary source description (e.g., from the cvLabel attribute, in CVParamType elements).
+  - Type: string  - Description: The short label to be used as a reference tag with which to refer to this particular Controlled Vocabulary source description (e.g., from the cvLabel attribute, in CVParamType elements).
   - XML: @id
 - __full_name__
   - Type: string
@@ -405,7 +404,7 @@ Information about an ontology or CV source and a short 'lookup' tag to refer to.
   - Description: The version of the CV from which the referred-to terms are drawn.
   - XML: @version
 - __uri__
-  - Type: xsAnyURI
+  - Type: url
   - Description: The URI for the resource.
   - XML: @URI
 
@@ -426,8 +425,7 @@ A list containing one or more person's name and information on how to communicat
 A person's name and information on how to communicate with them.
 
 - __id__
-  - Type: xsID
-  - Description: An identifier for this contact.
+  - Type: string  - Description: An identifier for this contact.
   - XML: @id
 - __full_name__
   - Type: string
@@ -456,7 +454,7 @@ A person's name and information on how to communicate with them.
 Reference to a previously defined sourceFile.
 
 - __reference__
-  - Type: xsIDREF
+  - Type: @Contact.id
   - Description: This attribute must reference the 'id' of the contact node in the contactList.
   - XML: @ref
 
@@ -477,7 +475,7 @@ no documentation given
 no documentation given
 
 - __reference__
-  - Type: xsIDREF
+  - Type: @SourceFile.id
   - Description: This attribute must reference the 'id' of the sourceFile node in the sourceFileList
   - XML: @ref
 
@@ -508,7 +506,7 @@ Information pertaining to the entire nmrML file (i.e. not specific to any part o
 This element holds additional data or annotation as a simple CV term with nofurther values (Parameters) associated with it. Only controlled CV terms values are allowed here.
 
 - __cv_reference__
-  - Type: xsIDREF
+  - Type: @CV.id
   - Description: A reference to the CV 'id' attribute as defined in the cvList in this nmrML file.
   - XML: @cvRef
 - __accession__
@@ -526,7 +524,7 @@ This element holds additional data or annotation as a simple CV term with nofurt
 This element holds additional data or annotation. In contrast to CVTermType, here a pair of CV term plus a value (=Parameter) is captured. Only controlled values are allowed here.
 
 - __cv_reference__
-  - Type: xsIDREF
+  - Type: @CV.id
   - Description: A reference to the CV 'id' attribute as defined in the cvList in this nmrML file.
   - XML: @cvRef
 - __accession__
@@ -548,7 +546,7 @@ This element holds additional data or annotation. In contrast to CVTermType, her
 This element holds additional data or annotation. Only controlled values are allowed here.
 
 - __cv_reference__
-  - Type: xsIDREF
+  - Type: @CV.id
   - Description: A reference to the CV 'id' attribute as defined in the cvList in this nmrML file.
   - XML: @cvRef
 - __accession__
@@ -564,7 +562,7 @@ This element holds additional data or annotation. Only controlled values are all
   - Description: The value for the parameter; may be absent if not appropriate, or a numeric or symbolic value, or may itself be CV (legal values for a parameter should be enumerated and defined in the ontology).
   - XML: @value
 - unit_cv_reference
-  - Type: xsIDREF
+  - Type: @CV.id
   - Description: If a unit term is referenced, this attribute must refer to the CV 'id' attribute defined in the cvList in this nmrML file.
   - XML: @unitCvRef
 - unit_accession
@@ -594,7 +592,7 @@ This element holds a value that also has a unit. Only controlled values are allo
   - Description: An optional CV name for the unit accession number, if any (e.g., 'electron volt' for 'UO:0000266').
   - XML: @unitName
 - unit_cv_reference
-  - Type: xsIDREF
+  - Type: @CV.id
   - Description: If a unit term is referenced, this attribute must refer to the CV 'id' attribute defined in the cvList in this nmrML file.
   - XML: @unitCvRef
 
@@ -624,7 +622,7 @@ Uncontrolled user parameters (essentially allowing free text). Before using thes
   - Description: An optional CV name for the unit accession number, if any (e.g., 'electron volt' for 'UO:0000266' ).
   - XML: @unitName
 - unit_cv_reference
-  - Type: xsIDREF
+  - Type: @CV.id
   - Description: If a unit term is referenced, this attribute must refer to the CV 'id' attribute defined in the cvList in this nmrML file.
   - XML: @unitCvRef
 
@@ -675,8 +673,7 @@ A collection of CVParam and UserParam elements that can be referenced from elsew
   - Multiple: True
   - XML: userParam
 - __id__
-  - Type: xsID
-  - Description: The identifier with which to reference this ReferenceableParamGroup.
+  - Type: string  - Description: The identifier with which to reference this ReferenceableParamGroup.
   - XML: @id
 
 
@@ -685,7 +682,7 @@ A collection of CVParam and UserParam elements that can be referenced from elsew
 A reference to a previously defined ParamGroup, which is a reusable container of one or more cvParams.
 
 - __reference__
-  - Type: xsIDREF
+  - Type: @ReferenceableParameterGroup.id
   - Description: Reference to the id attribute in a referenceableParamGroup.
   - XML: @ref
 
@@ -810,8 +807,7 @@ List and descriptions of software used to acquire and/or process the data in thi
 Software information.
 
 - __id__
-  - Type: xsID
-  - Description: An identifier for this software that is unique across all SoftwareTypes.
+  - Type: string  - Description: An identifier for this software that is unique across all SoftwareTypes.
   - XML: @id
 - version
   - Type: string
@@ -824,7 +820,7 @@ Software information.
 Reference to a previously defined software element.
 
 - __reference__
-  - Type: xsIDREF
+  - Type: @Software.id
   - Description: This attribute must be used to reference the 'id' attribute of a software element.
   - XML: @ref
 
@@ -845,8 +841,7 @@ no documentation given
 Description of the source file, including location and type. The SourceFileType element is intended to be a generic element that points to a file that was used to produce the spectrum or the nmrML file. It could point to an FID file, a procpar file, a pulse program file etc. nmrExperimentSourceFile could be a good name but I personally think that SourceFile is an intuitive name already.
 
 - __id__
-  - Type: xsID
-  - Description: An identifier for this file.
+  - Type: string  - Description: An identifier for this file.
   - XML: @id
 - __name__
   - Type: string
@@ -867,7 +862,7 @@ Description of the source file, including location and type. The SourceFileType 
 no documentation given
 
 - __reference__
-  - Type: xsIDREF
+  - Type: @SourceFile.id
   - Description: This attribute must reference the 'id' of the appropriate sourceFile.
   - XML: @ref
 
@@ -893,8 +888,7 @@ Description of a particular hardware configuration of a NMR spectrometer. For so
   - Multiple: True
   - XML: softwareRef
 - __id__
-  - Type: xsID
-  - Description: An identifier for this instrument configuration.
+  - Type: string  - Description: An identifier for this instrument configuration.
   - XML: @id
 
 
@@ -954,8 +948,7 @@ A temperature and references to a unit from the unit ontology.
   - Description: none given
   - XML: @temperatureUnitName
 - temperature_unit_id
-  - Type: xsID
-  - Description: none given
+  - Type: string  - Description: none given
   - XML: @temperatureUnitID
 
 
@@ -1158,8 +1151,7 @@ no documentation given
   - Description: The FID is stored here as a binary blob. Byte ordering is always little endian (Intel style). Computers using a different endian style must convert to/from little endian when writing/reading nmrML. The FID should be converted into a Complex64 array before encoding. The base64 encoded binary data. The byte order is always 'little endian'.
   - XML: fidData
 - id
-  - Type: xsID
-  - Description: An ID for the spectrum so that it can be referenced within the file for spectrum annotations.
+  - Type: string  - Description: An ID for the spectrum so that it can be referenced within the file for spectrum annotations.
   - XML @id
 - name
   - Type: string
@@ -1186,7 +1178,7 @@ no documentation given
 no documentation given
 
 - __reference__
-  - Type: xsIDREF
+  - Type: @SourceFile.id
   - Description: This attribute must reference the 'id' of the sourceFile node in the sourceFileList.
   - XML: @ref
 
@@ -1265,8 +1257,7 @@ A spectrum that is the result of processing the acquisition and a description of
   - Description: The number of (x,y) points in the spectrum. This is needed to read the binary data.
   - XML: @numberOfDataPoints
 - __id__
-  - Type: xsID
-  - Description: An ID for the spectrum so that it can be referenced within the file for spectrum annotations.
+  - Type: string  - Description: An ID for the spectrum so that it can be referenced within the file for spectrum annotations.
   - XML: @id
 - name
   - Type: string
@@ -1351,7 +1342,7 @@ no documentation given
   - Description: An optional CV name for the unit accession number, if any (e.g., 'electron volt' for 'UO:0000266').
   - XML: @unitName
 - unit_cv_reference
-  - Type: xsIDREF
+  - Type: @CV.id
   - Description: If a unit term is referenced, this attribute must refer to the CV 'id' attribute defined in the cvList in this nmrML file.
   - XML: @unitCvRef
 - start_value
