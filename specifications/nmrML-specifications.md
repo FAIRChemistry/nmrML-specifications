@@ -1152,7 +1152,7 @@ no documentation given
   - XML: fidData
 - id
   - Type: string  - Description: An ID for the spectrum so that it can be referenced within the file for spectrum annotations.
-  - XML @id
+  - XML: @id
 - name
   - Type: string
   - Description: A (optional) name so that it can be differentiated other than by its rank if multiple spectra are embedded within the file
