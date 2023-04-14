@@ -63,7 +63,7 @@ This is the root element for the COordination Of Standards In MetabOlomicS nmrML
   - Description: Optional accession number for the nmrML document. Used for storage (for example MetaboLights) 
   - XML: @accession
 - accession_url
-  - Type: url
+  - Type: URL
   - Description: Optional attribute for retrieva of an nmrML document. Usefull when the document has been retrieved from a public database.
   - XML: @accession_url
 - id
@@ -330,7 +330,7 @@ Captures a database identifier and reference via URI.
   - Description: none given
   - XML: @identifier
 - __uri__
-  - Type: url
+  - Type: URL
   - Description: none given
   - XML: @URI
 
@@ -405,7 +405,7 @@ Information about an ontology or CV source and a short 'lookup' tag to refer to.
   - Description: The version of the CV from which the referred-to terms are drawn.
   - XML: @version
 - __uri__
-  - Type: url
+  - Type: URL
   - Description: The URI for the resource.
   - XML: @URI
 
@@ -433,7 +433,7 @@ A person's name and information on how to communicate with them.
   - Description: Name of the contact person.
   - XML: @fullname
 - url
-  - Type: url
+  - Type: URL
   - Description: Uniform Resource Locator related to the contact person or organization.
   - XML: @url
 - address
@@ -787,7 +787,7 @@ no documentation given
   - Description: none given
   - XML: concentrationStandard
 - __original_biological_sample_reference__
-  - Type: url
+  - Type: URL
   - Description: none given
   - XML: @originalBiologicalSampleReference
 
@@ -849,7 +849,7 @@ Description of the source file, including location and type. The SourceFileType 
   - Description: Name of the source file, without reference to location (either URI or local path).
   - XML: @name
 - __location__
-  - Type: url
+  - Type: URL
   - Description: URI-formatted location where the file was retrieved.
   - XML: @location
 - sha1
