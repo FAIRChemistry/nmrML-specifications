@@ -393,7 +393,8 @@ Container for one or more controlled vocabulary definitions.
 Information about an ontology or CV source and a short 'lookup' tag to refer to.
 
 - __id__
-  - Type: string  - Description: The short label to be used as a reference tag with which to refer to this particular Controlled Vocabulary source description (e.g., from the cvLabel attribute, in CVParamType elements).
+  - Type: string  
+  - Description: The short label to be used as a reference tag with which to refer to this particular Controlled Vocabulary source description (e.g., from the cvLabel attribute, in CVParamType elements).
   - XML: @id
 - __full_name__
   - Type: string
