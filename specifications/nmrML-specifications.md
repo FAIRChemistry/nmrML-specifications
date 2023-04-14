@@ -41,7 +41,7 @@ This is the root element for the COordination Of Standards In MetabOlomicS nmrML
 - sample_list
   - Type: [SampleList](#SampleList)
   - Description: List and descriptions of samples.
-  - XML sampleList
+  - XML: sampleList
 - __acquisition__
   - Type: [Acquisition](#Acquisition)
   - Description: none given
