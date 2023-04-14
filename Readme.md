@@ -10,9 +10,10 @@ This is an example of how to set up a data model using the Software-Driven Resea
 Data models defined in the Markdown format follow these conventions:
 
 - **Modules** are denoted by a heading level 1 ```#```
+- **Packages** are set with a heading level 2 ```##```
 - **Objects** are started with a heading level 3 ```###``` 
-- Each object contains **fields** in bold as a list &rarr; ```- __name__```
-- **Required fields** are denoted with an asterix &rarr; ```- __name*__```
+- Each object contains **fields** list &rarr; ```- name```
+- **Required fields** are denoted by making them bold &rarr; ```- __name__```
 - Each field has **options** as a list of name to value mapping &rarr; ```- Type: string```
 
 ### ⚙️ Field options
