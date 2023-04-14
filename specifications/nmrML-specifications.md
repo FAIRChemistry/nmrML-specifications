@@ -72,7 +72,7 @@ This is the root element for the COordination Of Standards In MetabOlomicS nmrML
   - XML: @id
 
 
-### QuantifiedCompound(ChemicalCompound)
+### QuantifiedCompound [_ChemicalCompound_]
 
 no documentation given
 
@@ -415,7 +415,7 @@ A list containing one or more person's name and information on how to communicat
   - XML: contact
 
 
-### Contact(ParameterGroup)
+### Contact [_ParameterGroup_]
 
 A person's name and information on how to communicate with them.
 
@@ -799,7 +799,7 @@ List and descriptions of software used to acquire and/or process the data in thi
   - XML: software
 
 
-### Software(CVTerm)
+### Software [_CVTerm_]
 
 Software information.
 
@@ -834,7 +834,7 @@ no documentation given
   - XML: softwareRef
 
 
-### SourceFile(ParameterGroup)
+### SourceFile [_ParameterGroup_]
 
 Description of the source file, including location and type. The SourceFileType element is intended to be a generic element that points to a file that was used to produce the spectrum or the nmrML file. It could point to an FID file, a procpar file, a pulse program file etc. nmrExperimentSourceFile could be a good name but I personally think that SourceFile is an intuitive name already.
 
@@ -866,7 +866,7 @@ no documentation given
   - XML: @ref
 
 
-### InstrumentConfiguration(ParameterGroup)
+### InstrumentConfiguration [_ParameterGroup_]
 
 Description of a particular hardware configuration of a NMR spectrometer. For software configuration, use a ReferenceableParamGroup element.
 
@@ -892,7 +892,7 @@ List and descriptions of instrument configurations. At least one instrument conf
   - XML: instrumentConfiguration
 
 
-### BinaryDataArray(xsBase64Binary)
+### BinaryDataArray [_xsBase64Binary_]
 
 no documentation given
 
@@ -1022,7 +1022,7 @@ Base type for the list with the descriptions of the acquisition settings applied
   - XML: @numberOfScans
 
 
-### AcquisitionParameterSet1D(AcquisitionParameterSet)
+### AcquisitionParameterSet1D [_AcquisitionParameterSet_]
 
 no documentation given
 
@@ -1043,7 +1043,7 @@ no documentation given
   - XML: hadamardFrequency
 
 
-### AcquisitionParameterSetMultiD(AcquisitionParameterSet)
+### AcquisitionParameterSetMultiD [_AcquisitionParameterSet_]
 
 no documentation given
 
@@ -1066,7 +1066,7 @@ no documentation given
   - XML: indirectDimensionParameterSet
 
 
-### PulseSequence(ParameterGroup)
+### PulseSequence [_ParameterGroup_]
 
 A list of references to the source files that define the pulse sequence including pulse shape files, pulse sequence source code, pulse sequence parameter files, etc.
 
@@ -1214,7 +1214,7 @@ A spectrum that is the result of processing the acquisition and a description of
   - XML: @name
 
 
-### Spectrum1D(Spectrum)
+### Spectrum1D [_Spectrum_]
 
 no documentation given
 
@@ -1224,7 +1224,7 @@ no documentation given
   - XML: firstDimensionProcessingParameterSet
 
 
-### SpectrumMultiD(Spectrum)
+### SpectrumMultiD [_Spectrum_]
 
 no documentation given
 
@@ -1304,7 +1304,7 @@ no documentation given
   - XML: @endValue
 
 
-### HigherDimensionProcessingParameterSet(FirstDimensionProcessingParameterSet)
+### HigherDimensionProcessingParameterSet [_FirstDimensionProcessingParameterSet_]
 
 Parameters recorded when raw data set is processed to create a spectra that are specific to the second dimension.
 
