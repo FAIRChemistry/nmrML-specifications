@@ -6,11 +6,11 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .projected3dprocessingparameterset import Projected3DProcessingParameterSet
 from .firstdimensionprocessingparameterset import FirstDimensionProcessingParameterSet
-from .spectrummultid import SpectrumMultiD
-from .higherdimensionprocessingparameterset import HigherDimensionProcessingParameterSet
 from .spectrum1d import Spectrum1D
+from .projected3dprocessingparameterset import Projected3DProcessingParameterSet
+from .higherdimensionprocessingparameterset import HigherDimensionProcessingParameterSet
+from .spectrummultid import SpectrumMultiD
 
 
 @forge_signature
@@ -42,7 +42,7 @@ class SpectrumList(sdRDM.DataModel):
         default="git://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="2ebd8fdd8a0250af187f7adce763035c7e18d071"
+        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
     )
 
     def add_spectrum1_d_to_spectrum_1d(

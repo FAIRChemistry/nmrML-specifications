@@ -5,14 +5,14 @@ from pydantic import Field, PrivateAttr
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .cvterm import CVTerm
 from .softwarereference import SoftwareReference
-from .pulsesequence import PulseSequence
-from .sourcefilereference import SourceFileReference
-from .acquisitionparameterfilereferencelist import AcquisitionParameterFileReferenceList
-from .cvparameter import CVParameter
 from .contactreferencelist import ContactReferenceList
+from .pulsesequence import PulseSequence
+from .cvparameter import CVParameter
+from .sourcefilereference import SourceFileReference
 from .valuewithunit import ValueWithUnit
+from .cvterm import CVTerm
+from .acquisitionparameterfilereferencelist import AcquisitionParameterFileReferenceList
 
 
 @forge_signature
@@ -132,5 +132,5 @@ class AcquisitionParameterSet(sdRDM.DataModel):
         default="git://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="2ebd8fdd8a0250af187f7adce763035c7e18d071"
+        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
     )

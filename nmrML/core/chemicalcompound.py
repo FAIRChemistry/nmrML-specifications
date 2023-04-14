@@ -42,5 +42,5 @@ class ChemicalCompound(sdRDM.DataModel):
         default="git://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="2ebd8fdd8a0250af187f7adce763035c7e18d071"
+        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
     )
