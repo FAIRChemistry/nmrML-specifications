@@ -167,7 +167,8 @@ no documentation given
 no documentation given
 
 - __id__
-  - Type: string  - Description: An identifier unique to the file only, so that it can be referenced by the bond elements as well as by the spectrum annotations. Most people use "a1", "a2", ... , "aN".
+  - Type: string  
+  - Description: An identifier unique to the file only, so that it can be referenced by the bond elements as well as by the spectrum annotations. Most people use "a1", "a2", ... , "aN".
   - XML: @id
 - __element_type__
   - Type: [ElementType](#ElementType)
@@ -426,7 +427,8 @@ A list containing one or more person's name and information on how to communicat
 A person's name and information on how to communicate with them.
 
 - __id__
-  - Type: string  - Description: An identifier for this contact.
+  - Type: string  
+  - Description: An identifier for this contact.
   - XML: @id
 - __full_name__
   - Type: string
@@ -674,7 +676,8 @@ A collection of CVParam and UserParam elements that can be referenced from elsew
   - Multiple: True
   - XML: userParam
 - __id__
-  - Type: string  - Description: The identifier with which to reference this ReferenceableParamGroup.
+  - Type: string  
+  - Description: The identifier with which to reference this ReferenceableParamGroup.
   - XML: @id
 
 
@@ -808,7 +811,8 @@ List and descriptions of software used to acquire and/or process the data in thi
 Software information.
 
 - __id__
-  - Type: string  - Description: An identifier for this software that is unique across all SoftwareTypes.
+  - Type: string  
+  - Description: An identifier for this software that is unique across all SoftwareTypes.
   - XML: @id
 - version
   - Type: string
@@ -842,7 +846,8 @@ no documentation given
 Description of the source file, including location and type. The SourceFileType element is intended to be a generic element that points to a file that was used to produce the spectrum or the nmrML file. It could point to an FID file, a procpar file, a pulse program file etc. nmrExperimentSourceFile could be a good name but I personally think that SourceFile is an intuitive name already.
 
 - __id__
-  - Type: string  - Description: An identifier for this file.
+  - Type: string  
+  - Description: An identifier for this file.
   - XML: @id
 - __name__
   - Type: string
@@ -889,7 +894,8 @@ Description of a particular hardware configuration of a NMR spectrometer. For so
   - Multiple: True
   - XML: softwareRef
 - __id__
-  - Type: string  - Description: An identifier for this instrument configuration.
+  - Type: string  
+  - Description: An identifier for this instrument configuration.
   - XML: @id
 
 
@@ -949,7 +955,8 @@ A temperature and references to a unit from the unit ontology.
   - Description: none given
   - XML: @temperatureUnitName
 - temperature_unit_id
-  - Type: string  - Description: none given
+  - Type: string  
+  - Description: none given
   - XML: @temperatureUnitID
 
 
@@ -1152,7 +1159,8 @@ no documentation given
   - Description: The FID is stored here as a binary blob. Byte ordering is always little endian (Intel style). Computers using a different endian style must convert to/from little endian when writing/reading nmrML. The FID should be converted into a Complex64 array before encoding. The base64 encoded binary data. The byte order is always 'little endian'.
   - XML: fidData
 - id
-  - Type: string  - Description: An ID for the spectrum so that it can be referenced within the file for spectrum annotations.
+  - Type: string  
+  - Description: An ID for the spectrum so that it can be referenced within the file for spectrum annotations.
   - XML: @id
 - name
   - Type: string
@@ -1258,7 +1266,8 @@ A spectrum that is the result of processing the acquisition and a description of
   - Description: The number of (x,y) points in the spectrum. This is needed to read the binary data.
   - XML: @numberOfDataPoints
 - __id__
-  - Type: string  - Description: An ID for the spectrum so that it can be referenced within the file for spectrum annotations.
+  - Type: string  
+  - Description: An ID for the spectrum so that it can be referenced within the file for spectrum annotations.
   - XML: @id
 - name
   - Type: string
