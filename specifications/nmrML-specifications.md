@@ -8,7 +8,7 @@ Translation of the nmrML XSD schema v1.0-rc1 to Python object model based on sdR
 
 ### nmrML
 
-This is the root element for the COordination Of Standards In MetabOlomicS nmrML schema, which is intended to capture the use of a nuclear magnetic resonance spectrometer, the data generated, and the initial processing of that data (to the level of the peak list).
+This is the root element for the COordination Of Standards In MetabOlomicS nmrML schema, which is intended to capture the use of a nuclear magnetic resonance spectrometer, the data generated, and the initial processing of that data (to the level of the peak list). May have an id attribute.
 
 - __cv_list__
   - Type: [CVList](#CVList)
@@ -66,10 +66,6 @@ This is the root element for the COordination Of Standards In MetabOlomicS nmrML
   - Type: URL
   - Description: Optional attribute for retrieva of an nmrML document. Usefull when the document has been retrieved from a public database.
   - XML: @accession_url
-- id
-  - Type: string
-  - Description: An optional ID for the nmrML document.
-  - XML: @id
 
 
 ### QuantifiedCompound [_ChemicalCompound_]
@@ -164,12 +160,8 @@ no documentation given
 
 ### Atom
 
-no documentation given
+Must have an id attribute unique to the file only, so that it can be referenced by the bond elements as well as by the spectrum annotations. Most people use 'a1', 'a2', ... , 'aN'.
 
-- __id__
-  - Type: string  
-  - Description: An identifier unique to the file only, so that it can be referenced by the bond elements as well as by the spectrum annotations. Most people use 'a1', 'a2', ... , 'aN'.
-  - XML: @id
 - __element_type__
   - Type: [ElementType](#ElementType)
   - Description: The symbol for the element. For example: 'H','C' or 'Fe'.
@@ -391,12 +383,8 @@ Container for one or more controlled vocabulary definitions.
 
 ### CV
 
-Information about an ontology or CV source and a short 'lookup' tag to refer to.
+Information about an ontology or CV source and a short 'lookup' tag to refer to. Must have an id attribute to be used as a reference tag with which to refer to this particular Controlled Vocabulary source description (e.g., from the cvLabel attribute, in CVParamType elements).
 
-- __id__
-  - Type: string  
-  - Description: The short label to be used as a reference tag with which to refer to this particular Controlled Vocabulary source description (e.g., from the cvLabel attribute, in CVParamType elements).
-  - XML: @id
 - __full_name__
   - Type: string
   - Description: The usual name for the resource (e.g. The MSI-NMR Controlled Vocabulary).
@@ -424,12 +412,8 @@ A list containing one or more person's name and information on how to communicat
 
 ### Contact [_ParameterGroup_]
 
-A person's name and information on how to communicate with them.
+A person's name and information on how to communicate with them. Must have an id attribute.
 
-- __id__
-  - Type: string  
-  - Description: An identifier for this contact.
-  - XML: @id
 - __full_name__
   - Type: string
   - Description: Name of the contact person.
@@ -663,7 +647,7 @@ Structure allowing the use of a controlled (cvParam) or uncontrolled vocabulary 
 
 ### ReferenceableParameterGroup
 
-A collection of CVParam and UserParam elements that can be referenced from elsewhere in this nmrML document by using the 'paramGroupRef' element in that location to reference the 'id' attribute value of this element.
+A collection of CVParam and UserParam elements that can be referenced from elsewhere in this nmrML document by using the 'paramGroupRef' element in that location to reference the required 'id' attribute value of this element.
 
 - cv_parameter
   - Type: [CVParameter](#CVParameter)
@@ -675,10 +659,6 @@ A collection of CVParam and UserParam elements that can be referenced from elsew
   - Description: Uncontrolled user parameters (essentially allowing free text). Before using these, one should verify whether there is an appropriate CV term available, and if so, use the CV term instead.
   - Multiple: True
   - XML: userParam
-- __id__
-  - Type: string  
-  - Description: The identifier with which to reference this ReferenceableParamGroup.
-  - XML: @id
 
 
 ### ReferenceableParameterGroupReference
@@ -808,12 +788,8 @@ List and descriptions of software used to acquire and/or process the data in thi
 
 ### Software [_CVTerm_]
 
-Software information.
+Software information with a required id attribute for this software that is unique across all SoftwareTypes.
 
-- __id__
-  - Type: string  
-  - Description: An identifier for this software that is unique across all SoftwareTypes.
-  - XML: @id
 - version
   - Type: string
   - Description: The software version.
@@ -843,12 +819,8 @@ no documentation given
 
 ### SourceFile [_ParameterGroup_]
 
-Description of the source file, including location and type. The SourceFileType element is intended to be a generic element that points to a file that was used to produce the spectrum or the nmrML file. It could point to an FID file, a procpar file, a pulse program file etc. nmrExperimentSourceFile could be a good name but I personally think that SourceFile is an intuitive name already.
+Description of the source file, including location and type. The SourceFileType element is intended to be a generic element that points to a file that was used to produce the spectrum or the nmrML file. It could point to an FID file, a procpar file, a pulse program file etc. nmrExperimentSourceFile could be a good name but I personally think that SourceFile is an intuitive name already. Requied to have an id attribute.
 
-- __id__
-  - Type: string  
-  - Description: An identifier for this file.
-  - XML: @id
 - __name__
   - Type: string
   - Description: Name of the source file, without reference to location (either URI or local path).
@@ -886,17 +858,13 @@ no documentation given
 
 ### InstrumentConfiguration [_ParameterGroup_]
 
-Description of a particular hardware configuration of a NMR spectrometer. For software configuration, use a ReferenceableParamGroup element.
+Description of a particular hardware configuration of a NMR spectrometer. For software configuration, use a ReferenceableParamGroup element. Required to have an id attribute.
 
 - software_reference
   - Type: [SoftwareReference](#SoftwareReference)
   - Description: Reference to a previously defined software element.
   - Multiple: True
   - XML: softwareRef
-- __id__
-  - Type: string  
-  - Description: An identifier for this instrument configuration.
-  - XML: @id
 
 
 ### InstrumentConfigurationList
@@ -1164,7 +1132,7 @@ sdRDM-conform implementation of the [BinaryDataArray](#BinaryDataArray) in fidDa
 
 ### Acquisition1D
 
-no documentation given
+May have an id attribute for the spectrum so that it can be referenced within the file for spectrum annotations.
 
 - __acquisition_parameter_set__
   - Type: [AcquisitionParameterSet1D](#AcquisitionParameterSet1D)
@@ -1174,10 +1142,6 @@ no documentation given
   - Type: [FIDData](#fiddata-binarydataarray)
   - Description: The FID is stored here as a binary blob. Byte ordering is always little endian (Intel style). Computers using a different endian style must convert to/from little endian when writing/reading nmrML. The FID should be converted into a Complex64 array before encoding. The base64 encoded binary data. The byte order is always 'little endian'.
   - XML: fidData
-- id
-  - Type: string  
-  - Description: An ID for the spectrum so that it can be referenced within the file for spectrum annotations.
-  - XML: @id
 - name
   - Type: string
   - Description: A (optional) name so that it can be differentiated other than by its rank if multiple spectra are embedded within the file
@@ -1260,7 +1224,7 @@ sdRDM-conform implementation of the [BinaryDataArray](#BinaryDataArray) in spect
 
 ### Spectrum
 
-A spectrum that is the result of processing the acquisition and a description of the process used to create it.
+A spectrum that is the result of processing the acquisition and a description of the process used to create it. Must have an id attribute so that it can be referenced within the file for spectrum annotations.
 
 - processing_software_reference_list
   - Type: [SoftwareReferenceList](#SoftwareReferenceList)
@@ -1286,10 +1250,6 @@ A spectrum that is the result of processing the acquisition and a description of
   - Type: int
   - Description: The number of (x,y) points in the spectrum. This is needed to read the binary data.
   - XML: @numberOfDataPoints
-- __id__
-  - Type: string  
-  - Description: An ID for the spectrum so that it can be referenced within the file for spectrum annotations.
-  - XML: @id
 - name
   - Type: string
   - Description: An (optional) name so that it can be differentiated other than by its rank if multiple spectra are embedded within the file.
