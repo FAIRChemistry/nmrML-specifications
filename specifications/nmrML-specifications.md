@@ -36,7 +36,7 @@ This is the root element for the COordination Of Standards In MetabOlomicS nmrML
   - XML: softwareList
 - __instrument_configuration_list__
   - Type: [InstrumentConfigurationList](#InstrumentConfigurationList)
-  - Description: List and descriptions of instrument configurations. At least one instrument configuration must be specified, even if it is only to specify that the instrument is unknown. In that case, the "instrument model" term is used to indicate the unknown instrument in the instrumentConfiguration.
+  - Description: List and descriptions of instrument configurations. At least one instrument configuration must be specified, even if it is only to specify that the instrument is unknown. In that case, the 'instrument model' term is used to indicate the unknown instrument in the instrumentConfiguration.
   - XML: instrumentConfigurationList
 - sample_list
   - Type: [SampleList](#SampleList)
@@ -168,11 +168,11 @@ no documentation given
 
 - __id__
   - Type: string  
-  - Description: An identifier unique to the file only, so that it can be referenced by the bond elements as well as by the spectrum annotations. Most people use "a1", "a2", ... , "aN".
+  - Description: An identifier unique to the file only, so that it can be referenced by the bond elements as well as by the spectrum annotations. Most people use 'a1', 'a2', ... , 'aN'.
   - XML: @id
 - __element_type__
   - Type: [ElementType](#ElementType)
-  - Description: The symbol for the element. For example: "H","C" or "Fe".
+  - Description: The symbol for the element. For example: 'H','C' or 'Fe'.
   - XML: @elementType
 - __x__
   - Type: any
