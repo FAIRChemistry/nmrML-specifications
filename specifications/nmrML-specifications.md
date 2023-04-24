@@ -916,7 +916,7 @@ no documentation given
 
 - __compressed__
   - Type: bool
-  - Description: True if the binary data was compressed with zlib before encoding as base64
+  - Description: True if the binary data was compressed with zlib before encoding as base64.
   - XML: @compressed
 - __encoded_length__
   - Type: PositiveInt
@@ -971,6 +971,16 @@ no documentation given
   - XML: solute
 
 
+### SamplingTimePoints(_BinaryDataArray_)
+
+sdRDM-conform implementation of the [BinaryDataArray](#BinaryDataArray) in samplingTimePoints.
+
+- __binary_data_array__
+  - Type: string
+  - Description: Binary data given as base64-encoded string.
+  - XML: samplingTimePoints
+
+
 ### AcquisitionDimensionParameterSet
 
 Descriptions of the acquisition parameters set prior to the start of data acquisition specific to each NMR analysis dimension.
@@ -1012,7 +1022,7 @@ Descriptions of the acquisition parameters set prior to the start of data acquis
   - Description: none given
   - XML: samplingStrategy
 - sampling_time_points
-  - Type: [BinaryDataArray](#BinaryDataArray)
+  - Type: [SamplingTimePoints](#samplingtimepointsbinarydataarray)
   - Description: The time domain for the samples. Allows for capturing off grid points and non-uniform sampling.
   - XML: samplingTimePoints
 - __decoupled__
@@ -1136,14 +1146,20 @@ A list of references to the source files that define the pulse sequence includin
 
 no documentation given
 
-- acquisition_1d
-  - Type: [Acquisition1D](#Acquisition1D)
-  - Description: 
-  - XML: acquisition1D
-- acquisition_multi_d
-  - Type: [AcquisitionMultiD](#AcquisitionMultiD)
-  - Description: 
-  - XML: acquisitionMultiD
+- __acquisition__
+  - Type: [Acquisition1D](#Acquisition1D), [AcquisitionMultiD](#AcquisitionMultiD)
+  - Description: none given
+  - XML: {Acquisition1D: acquisition1D, AcquisitionMultiD: acquisitionMultiD}
+
+
+### FIDData(_BinaryDataArray_)
+
+sdRDM-conform implementation of the [BinaryDataArray](#BinaryDataArray) in fidData.
+
+- __binary_data_array__
+  - Type: string
+  - Description: Binary data given as base64-encoded string.
+  - XML: fidData
 
 
 ### Acquisition1D
@@ -1155,7 +1171,7 @@ no documentation given
   - Description: Note, steady state scan is also know as dummy scan.
   - XML: acquisitionParameterSet
 - fidData
-  - Type: [BinaryDataArray](#BinaryDataArray)
+  - Type: [FIDData](#fiddatabinarydataarray)
   - Description: The FID is stored here as a binary blob. Byte ordering is always little endian (Intel style). Computers using a different endian style must convert to/from little endian when writing/reading nmrML. The FID should be converted into a Complex64 array before encoding. The base64 encoded binary data. The byte order is always 'little endian'.
   - XML: fidData
 - id
@@ -1177,7 +1193,7 @@ no documentation given
   - Description: none given
   - XML: acquisitionParameterSet
 - __fid_data__
-  - Type: [BinaryDataArray](#BinaryDataArray)
+  - Type: [FIDData](#fiddatabinarydataarray)
   - Description: The FID is stored here as a binary blob. Byte ordering is always little endian (Intel style). Computers using a different endian style must convert to/from little endian when writing/reading nmrML. The FID should be converted into a Complex64 array before encoding. The base64 encoded binary data. The byte order is always 'little endian'.
   - XML: fidData
 
@@ -1207,16 +1223,11 @@ no documentation given
 
 List and descriptions of spectra.
 
-- spectrum_1d
-  - Type: [Spectrum1D](#Spectrum1D)
+- __spectrum__
+  - Type: [Spectrum1D](#Spectrum1D), [SpectrumMultiD](#SpectrumMultiD)
   - Description: none given
   - Multiple: True
-  - XML: spectrum1D
-- spectrum_multi_d
-  - Type: [SpectrumMultiD](#SpectrumMultiD)
-  - Description: none given
-  - Multiple: True
-  - XML: spectrumMultiD
+  - XML: {Spectrum1D: spectrum1D, SpectrumMultiD: spectrumMultiD}
 
 
 ### ProcessingParameterSet
@@ -1237,6 +1248,16 @@ Optional information about processing that was used to create the frequency doma
   - XML: dataTransformationMethod
 
 
+### SpectrumDataArray(_BinaryDataArray_)
+
+sdRDM-conform implementation of the [BinaryDataArray](#BinaryDataArray) in spectrumDataArray.
+
+- __binary_data_array__
+  - Type: string
+  - Description: Binary data given as base64-encoded string.
+  - XML: spectrumDataArray
+
+
 ### Spectrum
 
 A spectrum that is the result of processing the acquisition and a description of the process used to create it.
@@ -1250,7 +1271,7 @@ A spectrum that is the result of processing the acquisition and a description of
   - Description: none given
   - XML: processingParameterFileRefList
 - __spectrum_data_array__
-  - Type: [BinaryDataArray](#BinaryDataArray)
+  - Type: [SpectrumDataArray](#spectrumdataarraybinarydataarray)
   - Description: The 1D spectrum is represented as either a set of y-axis values at equal x-axis intervals or a set of (x,y) pairs.
   - XML: spectrumDataArray
 - __x_axis__
