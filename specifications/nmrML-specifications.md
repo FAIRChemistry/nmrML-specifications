@@ -431,7 +431,7 @@ A person's name and information on how to communicate with them. Must have an id
   - Description: Home institution of the contact person.
   - XML: @organization
 - __email__
-  - Type: Email
+  - Type: string
   - Description: Email address of the contact person or organization.
   - XML: @email
 
