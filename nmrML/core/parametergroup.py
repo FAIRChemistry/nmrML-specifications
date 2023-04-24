@@ -6,13 +6,13 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .cvparameter import CVParameter
-from .referenceableparametergroup import ReferenceableParameterGroup
+from .userparameter import UserParameter
 from .referenceableparametergroupreference import ReferenceableParameterGroupReference
-from .cvparameterwithunit import CVParameterWithUnit
+from .cvparameter import CVParameter
 from .cvterm import CVTerm
 from .cv import CV
-from .userparameter import UserParameter
+from .cvparameterwithunit import CVParameterWithUnit
+from .referenceableparametergroup import ReferenceableParameterGroup
 
 
 @forge_signature
@@ -83,13 +83,13 @@ class ParameterGroup(sdRDM.DataModel):
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )
 
-    def add_referenceable_parameter_group_reference_to_referenceable_parameter_group_reference(
+    def add_to_referenceable_parameter_group_reference(
         self, reference: ReferenceableParameterGroup, id: Optional[str] = None
     ) -> None:
         """
@@ -111,7 +111,7 @@ class ParameterGroup(sdRDM.DataModel):
             ReferenceableParameterGroupReference(**params)
         )
 
-    def add_cv_parameter_to_cv_parameter(
+    def add_to_cv_parameter(
         self,
         cv_reference: CV,
         accession: str,
@@ -142,7 +142,7 @@ class ParameterGroup(sdRDM.DataModel):
 
         self.cv_parameter.append(CVParameter(**params))
 
-    def add_cv_parameter_with_unit_to_cv_parameter_with_unit(
+    def add_to_cv_parameter_with_unit(
         self,
         cv_reference: CV,
         accession: str,
@@ -182,7 +182,7 @@ class ParameterGroup(sdRDM.DataModel):
 
         self.cv_parameter_with_unit.append(CVParameterWithUnit(**params))
 
-    def add_cv_term_to_cv_term(
+    def add_to_cv_term(
         self, cv_reference: CV, accession: str, name: str, id: Optional[str] = None
     ) -> None:
         """
@@ -206,7 +206,7 @@ class ParameterGroup(sdRDM.DataModel):
 
         self.cv_term.append(CVTerm(**params))
 
-    def add_user_parameter_to_user_parameter(
+    def add_to_user_parameter(
         self,
         name: str,
         value_type: Optional[str] = None,

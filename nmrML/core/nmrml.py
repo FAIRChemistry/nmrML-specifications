@@ -5,80 +5,81 @@ from pydantic import PrivateAttr, Field, validator
 from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
-from pydantic import AnyUrl
 from pydantic import EmailStr
 from typing import Any
-from pydantic.types import PositiveInt
+from pydantic import AnyUrl
 
-from .referenceableparametergroupreference import ReferenceableParameterGroupReference
-from .atomassignmentlist import AtomAssignmentList
-from .processingparameterfilereference import ProcessingParameterFileReference
-from .referenceableparametergroup import ReferenceableParameterGroup
-from .axiswithunit import AxisWithUnit
-from .valuewithunit import ValueWithUnit
-from .acquisitiondimensionparameterset import AcquisitionDimensionParameterSet
-from .hadamardparameterset import HadamardParameterSet
-from .processingparameterset import ProcessingParameterSet
-from .spectrumlist import SpectrumList
-from .sourcefilelist import SourceFileList
-from .acquisitionmultid import AcquisitionMultiD
-from .cvterm import CVTerm
-from .softwarereference import SoftwareReference
-from .firstdimensionprocessingparameterset import FirstDimensionProcessingParameterSet
-from .clusterlist import ClusterList
-from .quantificationannotation import QuantificationAnnotation
-from .solute import Solute
-from .multiplet import Multiplet
-from .samplelist import SampleList
-from .bondorder import BondOrder
-from .filedescription import FileDescription
-from .fieldfrequencylock import FieldFrequencyLock
 from .acquisition1d import Acquisition1D
-from .cvlist import CVList
-from .sample import Sample
-from .spectrum import Spectrum
-from .softwarereferencelist import SoftwareReferenceList
-from .atom import Atom
-from .spectrum1d import Spectrum1D
-from .peak import Peak
-from .acquisitionparametersetmultid import AcquisitionParameterSetMultiD
-from .spectrummultid import SpectrumMultiD
-from .instrumentconfigurationlist import InstrumentConfigurationList
-from .additionalsolutelist import AdditionalSoluteList
-from .quantifiedcompoundlist import QuantifiedCompoundList
-from .instrumentconfiguration import InstrumentConfiguration
-from .atomreferences import AtomReferences
-from .quantifiedcompound import QuantifiedCompound
-from .acquisitionparameterset1d import AcquisitionParameterSet1D
-from .cvparameterwithunit import CVParameterWithUnit
-from .projected3dprocessingparameterset import Projected3DProcessingParameterSet
-from .cluster import Cluster
-from .compoundidentifierlist import CompoundIdentifierList
-from .sourcefile import SourceFile
-from .elementtype import ElementType
-from .userparameter import UserParameter
-from .parametergroup import ParameterGroup
-from .cvparameter import CVParameter
-from .atomassignmentannotation import AtomAssignmentAnnotation
-from .contact import Contact
-from .softwarelist import SoftwareList
-from .bondlist import BondList
-from .contactlist import ContactList
-from .acquisition import Acquisition
 from .chemicalcompound import ChemicalCompound
-from .compoundstructure import CompoundStructure
-from .higherdimensionprocessingparameterset import HigherDimensionProcessingParameterSet
-from .processingparameterfilereferencelist import ProcessingParameterFileReferenceList
-from .spectrumannotationlist import SpectrumAnnotationList
-from .cv import CV
-from .peaklist import PeakList
-from .compounddatabaseidentifier import CompoundDatabaseIdentifier
-from .binarydataarray import BinaryDataArray
 from .concentrationstandard import ConcentrationStandard
-from .referenceableparametergrouplist import ReferenceableParameterGroupList
+from .quantifiedcompound import QuantifiedCompound
+from .samplelist import SampleList
+from .higherdimensionprocessingparameterset import HigherDimensionProcessingParameterSet
+from .parametergroup import ParameterGroup
+from .instrumentconfiguration import InstrumentConfiguration
+from .fieldfrequencylock import FieldFrequencyLock
 from .atomlist import AtomList
-from .bond import Bond
+from .acquisitiondimensionparameterset import AcquisitionDimensionParameterSet
+from .samplingtimepoints import SamplingTimePoints
+from .cluster import Cluster
+from .cvparameterwithunit import CVParameterWithUnit
+from .peak import Peak
+from .cv import CV
+from .contact import Contact
+from .sourcefile import SourceFile
+from .multiplet import Multiplet
+from .filedescription import FileDescription
+from .hadamardparameterset import HadamardParameterSet
+from .softwarelist import SoftwareList
+from .acquisitionparameterset1d import AcquisitionParameterSet1D
+from .acquisition import Acquisition
+from .atomassignmentlist import AtomAssignmentList
+from .spectrumdataarray import SpectrumDataArray
+from .sample import Sample
+from .atomassignmentannotation import AtomAssignmentAnnotation
+from .elementtype import ElementType
+from .spectrum1d import Spectrum1D
+from .compounddatabaseidentifier import CompoundDatabaseIdentifier
+from .bondorder import BondOrder
+from .instrumentconfigurationlist import InstrumentConfigurationList
+from .processingparameterset import ProcessingParameterSet
+from .solute import Solute
+from .cvlist import CVList
+from .acquisitionparametersetmultid import AcquisitionParameterSetMultiD
+from .sourcefilelist import SourceFileList
+from .processingparameterfilereference import ProcessingParameterFileReference
+from .spectrumannotationlist import SpectrumAnnotationList
+from .referenceableparametergroupreference import ReferenceableParameterGroupReference
+from .cvparameter import CVParameter
+from .cvterm import CVTerm
+from .bondlist import BondList
+from .peaklist import PeakList
+from .acquisitionmultid import AcquisitionMultiD
+from .compoundstructure import CompoundStructure
+from .quantificationannotation import QuantificationAnnotation
+from .contactlist import ContactList
+from .softwarereference import SoftwareReference
+from .atom import Atom
+from .clusterlist import ClusterList
+from .compoundidentifierlist import CompoundIdentifierList
+from .referenceableparametergroup import ReferenceableParameterGroup
+from .spectrum import Spectrum
+from .quantifiedcompoundlist import QuantifiedCompoundList
+from .softwarereferencelist import SoftwareReferenceList
 from .software import Software
+from .spectrumlist import SpectrumList
+from .atomreferences import AtomReferences
+from .userparameter import UserParameter
+from .valuewithunit import ValueWithUnit
+from .spectrummultid import SpectrumMultiD
+from .fiddata import FIDData
+from .processingparameterfilereferencelist import ProcessingParameterFileReferenceList
+from .bond import Bond
+from .referenceableparametergrouplist import ReferenceableParameterGroupList
+from .axiswithunit import AxisWithUnit
+from .projected3dprocessingparameterset import Projected3DProcessingParameterSet
+from .firstdimensionprocessingparameterset import FirstDimensionProcessingParameterSet
+from .additionalsolutelist import AdditionalSoluteList
 
 @forge_signature
 class nmrML(sdRDM.DataModel):
@@ -247,7 +248,7 @@ class nmrML(sdRDM.DataModel):
     
     )
 
-    __repo__: Optional[str] = PrivateAttr(default="git://github.com/FAIRChemistry/nmrML-specifications.git")
-    __commit__: Optional[str] = PrivateAttr(default="fb3af02b2009219cecf14787bd4869cf16c181a9")
+    __repo__: Optional[str] = PrivateAttr(default="https://github.com/FAIRChemistry/nmrML-specifications.git")
+    __commit__: Optional[str] = PrivateAttr(default="7c335cd7f4514607a6424461701c24ad7bd5d549")
     
 

@@ -5,8 +5,8 @@ from pydantic import Field, PrivateAttr
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .binarydataarray import BinaryDataArray
 from .acquisitionparameterset1d import AcquisitionParameterSet1D
+from .fiddata import FIDData
 
 
 @forge_signature
@@ -26,7 +26,7 @@ class Acquisition1D(sdRDM.DataModel):
         xml="acquisitionParameterSet",
     )
 
-    fidData: Optional[BinaryDataArray] = Field(
+    fidData: Optional[FIDData] = Field(
         default=None,
         description=(
             "The FID is stored here as a binary blob. Byte ordering is always little"
@@ -57,8 +57,8 @@ class Acquisition1D(sdRDM.DataModel):
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )

@@ -7,8 +7,8 @@ from sdRDM.base.utils import forge_signature, IDGenerator
 
 
 from .cvparameter import CVParameter
-from .valuewithunit import ValueWithUnit
 from .cvterm import CVTerm
+from .valuewithunit import ValueWithUnit
 from .cv import CV
 
 
@@ -67,13 +67,13 @@ class FirstDimensionProcessingParameterSet(sdRDM.DataModel):
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )
 
-    def add_cv_parameter_to_window_function_parameter(
+    def add_to_window_function_parameter(
         self,
         cv_reference: CV,
         accession: str,

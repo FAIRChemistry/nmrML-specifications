@@ -5,13 +5,13 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .acquisitionparameterset import AcquisitionParameterSet
 from .hadamardparameterset import HadamardParameterSet
+from .cvparameter import CVParameter
+from .cvterm import CVTerm
 from .valuewithunit import ValueWithUnit
 from .acquisitiondimensionparameterset import AcquisitionDimensionParameterSet
-from .cvparameter import CVParameter
-from .binarydataarray import BinaryDataArray
-from .cvterm import CVTerm
+from .samplingtimepoints import SamplingTimePoints
+from .acquisitionparameterset import AcquisitionParameterSet
 
 
 @forge_signature
@@ -54,13 +54,13 @@ class AcquisitionParameterSetMultiD(AcquisitionParameterSet):
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )
 
-    def add_acquisition_dimension_parameter_set_to_indirect_dimension_parameter_set(
+    def add_to_indirect_dimension_parameter_set(
         self,
         acquisition_nucleus: CVTerm,
         effective_excitation_field: ValueWithUnit,
@@ -73,7 +73,7 @@ class AcquisitionParameterSetMultiD(AcquisitionParameterSet):
         number_of_data_points: int,
         decoupling_method: Optional[CVTerm] = None,
         decoupling_nucleus: Optional[CVTerm] = None,
-        sampling_time_points: Optional[BinaryDataArray] = None,
+        sampling_time_points: Optional[SamplingTimePoints] = None,
         id: Optional[str] = None,
     ) -> None:
         """

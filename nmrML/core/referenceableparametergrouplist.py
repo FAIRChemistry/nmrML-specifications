@@ -6,9 +6,9 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
+from .userparameter import UserParameter
 from .cvparameter import CVParameter
 from .referenceableparametergroup import ReferenceableParameterGroup
-from .userparameter import UserParameter
 
 
 @forge_signature
@@ -34,13 +34,13 @@ class ReferenceableParameterGroupList(sdRDM.DataModel):
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )
 
-    def add_referenceable_parameter_group_to_referenceable_parameter_group(
+    def add_to_referenceable_parameter_group(
         self,
         id: str,
         cv_parameter: List[CVParameter] = ListPlus(),

@@ -40,13 +40,13 @@ class CompoundIdentifierList(sdRDM.DataModel):
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )
 
-    def add_cv_term_to_identifier(
+    def add_to_identifier(
         self, cv_reference: CV, accession: str, name: str, id: Optional[str] = None
     ) -> None:
         """
@@ -70,7 +70,7 @@ class CompoundIdentifierList(sdRDM.DataModel):
 
         self.identifier.append(CVTerm(**params))
 
-    def add_compound_database_identifier_to_database_identifier(
+    def add_to_database_identifier(
         self, identifier: str, uri: AnyUrl, id: Optional[str] = None
     ) -> None:
         """

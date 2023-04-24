@@ -4,18 +4,24 @@ from pydantic import Field, PrivateAttr
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .parametergroup import ParameterGroup
+from .binarydataarray import BinaryDataArray
 
 
 @forge_signature
-class PulseSequence(ParameterGroup):
+class SamplingTimePoints(BinaryDataArray):
 
-    """A list of references to the source files that define the pulse sequence including pulse shape files, pulse sequence source code, pulse sequence parameter files, etc."""
+    """sdRDM-conform implementation of the [BinaryDataArray](#BinaryDataArray) in samplingTimePoints."""
 
     id: str = Field(
         description="Unique identifier of the given object.",
-        default_factory=IDGenerator("pulsesequenceINDEX"),
+        default_factory=IDGenerator("samplingtimepointsINDEX"),
         xml="@id",
+    )
+
+    binary_data_array: str = Field(
+        ...,
+        description="Binary data given as base64-encoded string.",
+        xml="samplingTimePoints",
     )
 
     __repo__: Optional[str] = PrivateAttr(

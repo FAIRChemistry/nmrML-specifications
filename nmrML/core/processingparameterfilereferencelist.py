@@ -6,8 +6,8 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .sourcefile import SourceFile
 from .processingparameterfilereference import ProcessingParameterFileReference
+from .sourcefile import SourceFile
 
 
 @forge_signature
@@ -29,13 +29,13 @@ class ProcessingParameterFileReferenceList(sdRDM.DataModel):
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )
 
-    def add_processing_parameter_file_reference_to_processing_parameter_file_reference(
+    def add_to_processing_parameter_file_reference(
         self, reference: SourceFile, id: Optional[str] = None
     ) -> None:
         """

@@ -8,12 +8,12 @@ from sdRDM.base.utils import forge_signature, IDGenerator
 from pydantic import AnyUrl
 
 from .cvparameter import CVParameter
-from .concentrationstandard import ConcentrationStandard
-from .fieldfrequencylock import FieldFrequencyLock
-from .cvparameterwithunit import CVParameterWithUnit
 from .cvterm import CVTerm
+from .concentrationstandard import ConcentrationStandard
 from .cv import CV
 from .additionalsolutelist import AdditionalSoluteList
+from .cvparameterwithunit import CVParameterWithUnit
+from .fieldfrequencylock import FieldFrequencyLock
 
 
 @forge_signature
@@ -83,13 +83,13 @@ class Sample(sdRDM.DataModel):
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )
 
-    def add_cv_parameter_with_unit_to_solvent_type(
+    def add_to_solvent_type(
         self,
         cv_reference: CV,
         accession: str,

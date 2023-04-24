@@ -5,9 +5,12 @@ classDiagram
     CVTerm <-- Software
     ParameterGroup <-- SourceFile
     ParameterGroup <-- InstrumentConfiguration
+    BinaryDataArray <-- SamplingTimePoints
     AcquisitionParameterSet <-- AcquisitionParameterSet1D
     AcquisitionParameterSet <-- AcquisitionParameterSetMultiD
     ParameterGroup <-- PulseSequence
+    BinaryDataArray <-- FIDData
+    BinaryDataArray <-- SpectrumDataArray
     Spectrum <-- Spectrum1D
     Spectrum <-- SpectrumMultiD
     FirstDimensionProcessingParameterSet <-- HigherDimensionProcessingParameterSet
@@ -94,7 +97,7 @@ classDiagram
     AdditionalSoluteList *-- Solute
     AcquisitionDimensionParameterSet *-- CVTerm
     AcquisitionDimensionParameterSet *-- ValueWithUnit
-    AcquisitionDimensionParameterSet *-- BinaryDataArray
+    AcquisitionDimensionParameterSet *-- SamplingTimePoints
     AcquisitionParameterSet *-- ContactReferenceList
     AcquisitionParameterSet *-- AcquisitionParameterFileReferenceList
     AcquisitionParameterSet *-- CVTerm
@@ -110,19 +113,19 @@ classDiagram
     AcquisitionParameterSetMultiD *-- HadamardParameterSet
     Acquisition *-- Acquisition1D
     Acquisition *-- AcquisitionMultiD
-    Acquisition1D *-- BinaryDataArray
     Acquisition1D *-- AcquisitionParameterSet1D
-    AcquisitionMultiD *-- BinaryDataArray
+    Acquisition1D *-- FIDData
     AcquisitionMultiD *-- AcquisitionParameterSetMultiD
+    AcquisitionMultiD *-- FIDData
     ProcessingParameterFileReference *-- SourceFile
     ProcessingParameterFileReferenceList *-- ProcessingParameterFileReference
     SpectrumList *-- Spectrum1D
     SpectrumList *-- SpectrumMultiD
     ProcessingParameterSet *-- CVTerm
     Spectrum *-- SoftwareReferenceList
-    Spectrum *-- BinaryDataArray
     Spectrum *-- ProcessingParameterFileReferenceList
     Spectrum *-- ProcessingParameterSet
+    Spectrum *-- SpectrumDataArray
     Spectrum *-- AxisWithUnit
     Spectrum1D *-- FirstDimensionProcessingParameterSet
     SpectrumMultiD *-- FirstDimensionProcessingParameterSet
@@ -454,6 +457,10 @@ classDiagram
         +Solute[0..*] solute
     }
     
+    class SamplingTimePoints {
+        +string binary_data_array*
+    }
+    
     class AcquisitionDimensionParameterSet {
         +CVTerm decoupling_method
         +CVTerm acquisition_nucleus*
@@ -464,7 +471,7 @@ classDiagram
         +ValueWithUnit irradiation_frequency_offset*
         +CVTerm decoupling_nucleus
         +CVTerm sampling_strategy*
-        +BinaryDataArray sampling_time_points
+        +SamplingTimePoints sampling_time_points
         +bool decoupled*
         +int number_of_data_points*
     }
@@ -504,20 +511,23 @@ classDiagram
     }
     
     class Acquisition {
-        +Acquisition1D acquisition_1d
-        +AcquisitionMultiD acquisition_multi_d
+        +Acquisition1D, AcquisitionMultiD acquisition*
+    }
+    
+    class FIDData {
+        +string binary_data_array*
     }
     
     class Acquisition1D {
         +AcquisitionParameterSet1D acquisition_parameter_set*
-        +BinaryDataArray fidData
+        +FIDData fidData
         +string id
         +string name
     }
     
     class AcquisitionMultiD {
         +AcquisitionParameterSetMultiD acquisition_parameter_set*
-        +BinaryDataArray fid_data*
+        +FIDData fid_data*
     }
     
     class ProcessingParameterFileReference {
@@ -529,8 +539,7 @@ classDiagram
     }
     
     class SpectrumList {
-        +Spectrum1D[0..*] spectrum_1d
-        +SpectrumMultiD[0..*] spectrum_multi_d
+        +Spectrum1D, SpectrumMultiD[0..*] spectrum*
     }
     
     class ProcessingParameterSet {
@@ -539,10 +548,14 @@ classDiagram
         +CVTerm data_transformation_method
     }
     
+    class SpectrumDataArray {
+        +string binary_data_array*
+    }
+    
     class Spectrum {
         +SoftwareReferenceList processing_software_reference_list
         +ProcessingParameterFileReferenceList processing_parameter_file_reference_list
-        +BinaryDataArray spectrum_data_array*
+        +SpectrumDataArray spectrum_data_array*
         +AxisWithUnit x_axis*
         +ProcessingParameterSet processing_parameter_set
         +int number_of_data_points*

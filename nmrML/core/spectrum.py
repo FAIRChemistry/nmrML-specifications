@@ -5,10 +5,10 @@ from pydantic import Field, PrivateAttr
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .binarydataarray import BinaryDataArray
-from .axiswithunit import AxisWithUnit
-from .softwarereferencelist import SoftwareReferenceList
 from .processingparameterset import ProcessingParameterSet
+from .softwarereferencelist import SoftwareReferenceList
+from .axiswithunit import AxisWithUnit
+from .spectrumdataarray import SpectrumDataArray
 from .processingparameterfilereferencelist import ProcessingParameterFileReferenceList
 
 
@@ -37,7 +37,7 @@ class Spectrum(sdRDM.DataModel):
         xml="processingParameterFileRefList",
     )
 
-    spectrum_data_array: BinaryDataArray = Field(
+    spectrum_data_array: SpectrumDataArray = Field(
         ...,
         description=(
             "The 1D spectrum is represented as either a set of y-axis values at equal"
@@ -89,8 +89,8 @@ class Spectrum(sdRDM.DataModel):
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )

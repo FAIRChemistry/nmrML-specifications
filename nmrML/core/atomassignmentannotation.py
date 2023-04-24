@@ -5,9 +5,9 @@ from pydantic import PrivateAttr, Field, validator
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .atomassignmentlist import AtomAssignmentList
 from .spectrum import Spectrum
 from .chemicalcompound import ChemicalCompound
+from .atomassignmentlist import AtomAssignmentList
 
 
 @forge_signature
@@ -46,10 +46,10 @@ class AtomAssignmentAnnotation(sdRDM.DataModel):
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )
 
     @validator("spectrum_reference")

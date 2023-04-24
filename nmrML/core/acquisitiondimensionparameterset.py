@@ -5,9 +5,9 @@ from pydantic import Field, PrivateAttr
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .binarydataarray import BinaryDataArray
-from .valuewithunit import ValueWithUnit
 from .cvterm import CVTerm
+from .valuewithunit import ValueWithUnit
+from .samplingtimepoints import SamplingTimePoints
 
 
 @forge_signature
@@ -80,7 +80,7 @@ class AcquisitionDimensionParameterSet(sdRDM.DataModel):
         xml="samplingStrategy",
     )
 
-    sampling_time_points: Optional[BinaryDataArray] = Field(
+    sampling_time_points: Optional[SamplingTimePoints] = Field(
         default=None,
         description=(
             "The time domain for the samples. Allows for capturing off grid points and"
@@ -102,8 +102,8 @@ class AcquisitionDimensionParameterSet(sdRDM.DataModel):
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )

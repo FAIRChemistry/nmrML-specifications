@@ -56,6 +56,7 @@ from .binarydataarray import BinaryDataArray
 from .solute import Solute
 from .temperature import Temperature
 from .additionalsolutelist import AdditionalSoluteList
+from .samplingtimepoints import SamplingTimePoints
 from .acquisitiondimensionparameterset import AcquisitionDimensionParameterSet
 from .acquisitionparameterset import AcquisitionParameterSet
 from .acquisitionparameterset1d import AcquisitionParameterSet1D
@@ -63,12 +64,14 @@ from .hadamardparameterset import HadamardParameterSet
 from .acquisitionparametersetmultid import AcquisitionParameterSetMultiD
 from .pulsesequence import PulseSequence
 from .acquisition import Acquisition
+from .fiddata import FIDData
 from .acquisition1d import Acquisition1D
 from .acquisitionmultid import AcquisitionMultiD
 from .processingparameterfilereference import ProcessingParameterFileReference
 from .processingparameterfilereferencelist import ProcessingParameterFileReferenceList
 from .spectrumlist import SpectrumList
 from .processingparameterset import ProcessingParameterSet
+from .spectrumdataarray import SpectrumDataArray
 from .spectrum import Spectrum
 from .spectrum1d import Spectrum1D
 from .spectrummultid import SpectrumMultiD
@@ -140,6 +143,7 @@ __all__ = [
     "Solute",
     "Temperature",
     "AdditionalSoluteList",
+    "SamplingTimePoints",
     "AcquisitionDimensionParameterSet",
     "AcquisitionParameterSet",
     "AcquisitionParameterSet1D",
@@ -147,12 +151,14 @@ __all__ = [
     "AcquisitionParameterSetMultiD",
     "PulseSequence",
     "Acquisition",
+    "FIDData",
     "Acquisition1D",
     "AcquisitionMultiD",
     "ProcessingParameterFileReference",
     "ProcessingParameterFileReferenceList",
     "SpectrumList",
     "ProcessingParameterSet",
+    "SpectrumDataArray",
     "Spectrum",
     "Spectrum1D",
     "SpectrumMultiD",

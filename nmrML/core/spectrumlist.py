@@ -1,16 +1,16 @@
 import sdRDM
 
-from typing import List, Optional
+from typing import Optional, Union, List
 from pydantic import Field, PrivateAttr
 from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .firstdimensionprocessingparameterset import FirstDimensionProcessingParameterSet
-from .spectrum1d import Spectrum1D
-from .projected3dprocessingparameterset import Projected3DProcessingParameterSet
 from .higherdimensionprocessingparameterset import HigherDimensionProcessingParameterSet
 from .spectrummultid import SpectrumMultiD
+from .projected3dprocessingparameterset import Projected3DProcessingParameterSet
+from .firstdimensionprocessingparameterset import FirstDimensionProcessingParameterSet
+from .spectrum1d import Spectrum1D
 
 
 @forge_signature
@@ -24,28 +24,21 @@ class SpectrumList(sdRDM.DataModel):
         xml="@id",
     )
 
-    spectrum_1d: List[Spectrum1D] = Field(
+    spectrum: List[Union[Spectrum1D, SpectrumMultiD]] = Field(
         description="none given",
-        default_factory=ListPlus,
         multiple=True,
-        xml="spectrum1D",
-    )
-
-    spectrum_multi_d: List[SpectrumMultiD] = Field(
-        description="none given",
+        xml="{Spectrum1D: spectrum1D, SpectrumMultiD: spectrumMultiD}",
         default_factory=ListPlus,
-        multiple=True,
-        xml="spectrumMultiD",
     )
 
     __repo__: Optional[str] = PrivateAttr(
-        default="git://github.com/FAIRChemistry/nmrML-specifications.git"
+        default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="fb3af02b2009219cecf14787bd4869cf16c181a9"
+        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
     )
 
-    def add_spectrum1_d_to_spectrum_1d(
+    def add_spectrum1_d_to_spectrum(
         self,
         first_dimension_processing_parameter_set: Optional[
             FirstDimensionProcessingParameterSet
@@ -53,7 +46,7 @@ class SpectrumList(sdRDM.DataModel):
         id: Optional[str] = None,
     ) -> None:
         """
-        This method adds an object of type 'Spectrum1D' to attribute spectrum_1d
+        This method adds an object of type 'Spectrum1D' to attribute spectrum
 
         Args:
             id (str): Unique identifier of the 'Spectrum1D' object. Defaults to 'None'.
@@ -69,9 +62,9 @@ class SpectrumList(sdRDM.DataModel):
         if id is not None:
             params["id"] = id
 
-        self.spectrum_1d.append(Spectrum1D(**params))
+        self.spectrum.append(Spectrum1D(**params))
 
-    def add_spectrum_multi_d_to_spectrum_multi_d(
+    def add_spectrum_multi_d_to_spectrum(
         self,
         first_dimension_processing_parameter_set: FirstDimensionProcessingParameterSet,
         higher_dimension_processing_parameter_set: List[
@@ -83,7 +76,7 @@ class SpectrumList(sdRDM.DataModel):
         id: Optional[str] = None,
     ) -> None:
         """
-        This method adds an object of type 'SpectrumMultiD' to attribute spectrum_multi_d
+        This method adds an object of type 'SpectrumMultiD' to attribute spectrum
 
         Args:
             id (str): Unique identifier of the 'SpectrumMultiD' object. Defaults to 'None'.
@@ -107,4 +100,4 @@ class SpectrumList(sdRDM.DataModel):
         if id is not None:
             params["id"] = id
 
-        self.spectrum_multi_d.append(SpectrumMultiD(**params))
+        self.spectrum.append(SpectrumMultiD(**params))
