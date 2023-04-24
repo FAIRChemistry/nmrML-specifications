@@ -6,8 +6,8 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .instrumentconfiguration import InstrumentConfiguration
 from .softwarereference import SoftwareReference
+from .instrumentconfiguration import InstrumentConfiguration
 
 
 @forge_signature
@@ -35,12 +35,11 @@ class InstrumentConfigurationList(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )
 
     def add_to_instrument_configuration(
         self,
-        id: str,
         software_reference: List[SoftwareReference] = ListPlus(),
         id: Optional[str] = None,
     ) -> None:
@@ -49,12 +48,10 @@ class InstrumentConfigurationList(sdRDM.DataModel):
 
         Args:
             id (str): Unique identifier of the 'InstrumentConfiguration' object. Defaults to 'None'.
-            id (): An identifier for this instrument configuration..
             software_reference (): Reference to a previously defined software element.. Defaults to ListPlus()
         """
 
         params = {
-            "id": id,
             "software_reference": software_reference,
         }
 

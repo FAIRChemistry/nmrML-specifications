@@ -7,8 +7,8 @@ from sdRDM.base.utils import forge_signature, IDGenerator
 
 
 from .userparameter import UserParameter
-from .cvparameter import CVParameter
 from .referenceableparametergroup import ReferenceableParameterGroup
+from .cvparameter import CVParameter
 
 
 @forge_signature
@@ -37,12 +37,11 @@ class ReferenceableParameterGroupList(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )
 
     def add_to_referenceable_parameter_group(
         self,
-        id: str,
         cv_parameter: List[CVParameter] = ListPlus(),
         user_parameter: List[UserParameter] = ListPlus(),
         id: Optional[str] = None,
@@ -52,13 +51,11 @@ class ReferenceableParameterGroupList(sdRDM.DataModel):
 
         Args:
             id (str): Unique identifier of the 'ReferenceableParameterGroup' object. Defaults to 'None'.
-            id (): The identifier with which to reference this ReferenceableParamGroup..
             cv_parameter (): This element holds additional data or annotation. In contrast to CVTermType, here a pair of CV term plus a value (=Parameter) is captured. Only controlled values are allowed here.. Defaults to ListPlus()
             user_parameter (): Uncontrolled user parameters (essentially allowing free text). Before using these, one should verify whether there is an appropriate CV term available, and if so, use the CV term instead.. Defaults to ListPlus()
         """
 
         params = {
-            "id": id,
             "cv_parameter": cv_parameter,
             "user_parameter": user_parameter,
         }

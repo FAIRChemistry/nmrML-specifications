@@ -4,10 +4,10 @@ from pydantic import Field, PrivateAttr
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .chemicalcompound import ChemicalCompound
-from .clusterlist import ClusterList
 from .peaklist import PeakList
 from .valuewithunit import ValueWithUnit
+from .clusterlist import ClusterList
+from .chemicalcompound import ChemicalCompound
 
 
 @forge_signature
@@ -51,5 +51,5 @@ class QuantifiedCompound(ChemicalCompound):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )

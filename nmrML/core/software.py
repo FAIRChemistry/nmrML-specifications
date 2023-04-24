@@ -10,19 +10,11 @@ from .cvterm import CVTerm
 @forge_signature
 class Software(CVTerm):
 
-    """Software information."""
+    """Software information with a required id attribute for this software that is unique across all SoftwareTypes."""
 
     id: str = Field(
         description="Unique identifier of the given object.",
         default_factory=IDGenerator("softwareINDEX"),
-        xml="@id",
-    )
-
-    id: str = Field(
-        ...,
-        description=(
-            "An identifier for this software that is unique across all SoftwareTypes."
-        ),
         xml="@id",
     )
 
@@ -36,5 +28,5 @@ class Software(CVTerm):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )

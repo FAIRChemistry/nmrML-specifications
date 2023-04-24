@@ -11,17 +11,11 @@ from .parametergroup import ParameterGroup
 @forge_signature
 class SourceFile(ParameterGroup):
 
-    """Description of the source file, including location and type. The SourceFileType element is intended to be a generic element that points to a file that was used to produce the spectrum or the nmrML file. It could point to an FID file, a procpar file, a pulse program file etc. nmrExperimentSourceFile could be a good name but I personally think that SourceFile is an intuitive name already."""
+    """Description of the source file, including location and type. The SourceFileType element is intended to be a generic element that points to a file that was used to produce the spectrum or the nmrML file. It could point to an FID file, a procpar file, a pulse program file etc. nmrExperimentSourceFile could be a good name but I personally think that SourceFile is an intuitive name already. Requied to have an id attribute."""
 
     id: str = Field(
         description="Unique identifier of the given object.",
         default_factory=IDGenerator("sourcefileINDEX"),
-        xml="@id",
-    )
-
-    id: str = Field(
-        ...,
-        description="An identifier for this file.",
         xml="@id",
     )
 
@@ -50,5 +44,5 @@ class SourceFile(ParameterGroup):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )

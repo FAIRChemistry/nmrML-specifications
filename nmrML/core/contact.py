@@ -12,17 +12,11 @@ from .parametergroup import ParameterGroup
 @forge_signature
 class Contact(ParameterGroup):
 
-    """A person's name and information on how to communicate with them."""
+    """A person's name and information on how to communicate with them. Must have an id attribute."""
 
     id: str = Field(
         description="Unique identifier of the given object.",
         default_factory=IDGenerator("contactINDEX"),
-        xml="@id",
-    )
-
-    id: str = Field(
-        ...,
-        description="An identifier for this contact.",
         xml="@id",
     )
 
@@ -62,5 +56,5 @@ class Contact(ParameterGroup):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )

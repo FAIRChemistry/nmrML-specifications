@@ -12,21 +12,11 @@ from .elementtype import ElementType
 @forge_signature
 class Atom(sdRDM.DataModel):
 
-    """no documentation given"""
+    """Must have an id attribute unique to the file only, so that it can be referenced by the bond elements as well as by the spectrum annotations. Most people use 'a1', 'a2', ... , 'aN'."""
 
     id: str = Field(
         description="Unique identifier of the given object.",
         default_factory=IDGenerator("atomINDEX"),
-        xml="@id",
-    )
-
-    id: str = Field(
-        ...,
-        description=(
-            "An identifier unique to the file only, so that it can be referenced by the"
-            " bond elements as well as by the spectrum annotations. Most people use"
-            " 'a1', 'a2', ... , 'aN'."
-        ),
         xml="@id",
     )
 
@@ -60,5 +50,5 @@ class Atom(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )

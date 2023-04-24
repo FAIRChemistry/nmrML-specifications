@@ -39,12 +39,11 @@ class SourceFileList(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )
 
     def add_to_source_file(
         self,
-        id: str,
         name: str,
         location: AnyUrl,
         sha1: Optional[str] = None,
@@ -55,14 +54,12 @@ class SourceFileList(sdRDM.DataModel):
 
         Args:
             id (str): Unique identifier of the 'SourceFile' object. Defaults to 'None'.
-            id (): An identifier for this file..
             name (): Name of the source file, without reference to location (either URI or local path)..
             location (): URI-formatted location where the file was retrieved..
             sha1 (): sha1 of the file.. Defaults to None
         """
 
         params = {
-            "id": id,
             "name": name,
             "location": location,
             "sha1": sha1,

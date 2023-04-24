@@ -14,7 +14,7 @@ from .cvparameter import CVParameter
 @forge_signature
 class ReferenceableParameterGroup(sdRDM.DataModel):
 
-    """A collection of CVParam and UserParam elements that can be referenced from elsewhere in this nmrML document by using the 'paramGroupRef' element in that location to reference the 'id' attribute value of this element."""
+    """A collection of CVParam and UserParam elements that can be referenced from elsewhere in this nmrML document by using the 'paramGroupRef' element in that location to reference the required 'id' attribute value of this element."""
 
     id: str = Field(
         description="Unique identifier of the given object.",
@@ -44,19 +44,11 @@ class ReferenceableParameterGroup(sdRDM.DataModel):
         xml="userParam",
     )
 
-    id: str = Field(
-        ...,
-        description=(
-            "The identifier with which to reference this ReferenceableParamGroup."
-        ),
-        xml="@id",
-    )
-
     __repo__: Optional[str] = PrivateAttr(
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )
 
     def add_to_cv_parameter(

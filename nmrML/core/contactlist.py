@@ -5,8 +5,8 @@ from pydantic import Field, PrivateAttr
 from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
-from pydantic import AnyUrl
 from pydantic import EmailStr
+from pydantic import AnyUrl
 
 from .contact import Contact
 
@@ -33,12 +33,11 @@ class ContactList(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )
 
     def add_to_contact(
         self,
-        id: str,
         full_name: str,
         email: EmailStr,
         url: Optional[AnyUrl] = None,
@@ -51,7 +50,6 @@ class ContactList(sdRDM.DataModel):
 
         Args:
             id (str): Unique identifier of the 'Contact' object. Defaults to 'None'.
-            id (): An identifier for this contact..
             full_name (): Name of the contact person..
             email (): Email address of the contact person or organization..
             url (): Uniform Resource Locator related to the contact person or organization.. Defaults to None
@@ -60,7 +58,6 @@ class ContactList(sdRDM.DataModel):
         """
 
         params = {
-            "id": id,
             "full_name": full_name,
             "email": email,
             "url": url,

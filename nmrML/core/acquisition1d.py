@@ -12,7 +12,7 @@ from .fiddata import FIDData
 @forge_signature
 class Acquisition1D(sdRDM.DataModel):
 
-    """no documentation given"""
+    """May have an id attribute for the spectrum so that it can be referenced within the file for spectrum annotations."""
 
     id: str = Field(
         description="Unique identifier of the given object.",
@@ -38,15 +38,6 @@ class Acquisition1D(sdRDM.DataModel):
         xml="fidData",
     )
 
-    id: Optional[str] = Field(
-        default=None,
-        description=(
-            "An ID for the spectrum so that it can be referenced within the file for"
-            " spectrum annotations."
-        ),
-        xml="@id",
-    )
-
     name: Optional[str] = Field(
         default=None,
         description=(
@@ -60,5 +51,5 @@ class Acquisition1D(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )

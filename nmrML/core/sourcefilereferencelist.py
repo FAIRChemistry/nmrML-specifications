@@ -6,8 +6,8 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .sourcefilereference import SourceFileReference
 from .sourcefile import SourceFile
+from .sourcefilereference import SourceFileReference
 
 
 @forge_signature
@@ -32,7 +32,7 @@ class SourceFileReferenceList(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )
 
     def add_to_source_file_reference(

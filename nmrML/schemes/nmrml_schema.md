@@ -151,7 +151,6 @@ classDiagram
         +string version*
         +string accession
         +URL accession_url
-        +string id
     }
     
     class QuantifiedCompound {
@@ -186,7 +185,6 @@ classDiagram
     }
     
     class Atom {
-        +string id*
         +ElementType element_type*
         +any x*
         +any y*
@@ -265,7 +263,6 @@ classDiagram
     }
     
     class CV {
-        +string id*
         +string full_name*
         +string version
         +URL uri*
@@ -276,7 +273,6 @@ classDiagram
     }
     
     class Contact {
-        +string id*
         +string full_name*
         +URL url
         +string address
@@ -354,7 +350,6 @@ classDiagram
     class ReferenceableParameterGroup {
         +CVParameter[0..*] cv_parameter
         +UserParameter[0..*] user_parameter
-        +string id*
     }
     
     class ReferenceableParameterGroupReference {
@@ -400,7 +395,6 @@ classDiagram
     }
     
     class Software {
-        +string id*
         +string version
     }
     
@@ -413,7 +407,6 @@ classDiagram
     }
     
     class SourceFile {
-        +string id*
         +string name*
         +URL location*
         +string sha1
@@ -429,7 +422,6 @@ classDiagram
     
     class InstrumentConfiguration {
         +SoftwareReference[0..*] software_reference
-        +string id*
     }
     
     class InstrumentConfigurationList {
@@ -521,7 +513,6 @@ classDiagram
     class Acquisition1D {
         +AcquisitionParameterSet1D acquisition_parameter_set*
         +FIDData fidData
-        +string id
         +string name
     }
     
@@ -559,7 +550,6 @@ classDiagram
         +AxisWithUnit x_axis*
         +ProcessingParameterSet processing_parameter_set
         +int number_of_data_points*
-        +string id*
         +string name
     }
     

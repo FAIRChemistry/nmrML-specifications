@@ -6,16 +6,16 @@ from sdRDM.base.utils import forge_signature, IDGenerator
 
 
 from .processingparameterfilereferencelist import ProcessingParameterFileReferenceList
-from .softwarereferencelist import SoftwareReferenceList
-from .processingparameterset import ProcessingParameterSet
 from .axiswithunit import AxisWithUnit
 from .spectrumdataarray import SpectrumDataArray
+from .processingparameterset import ProcessingParameterSet
+from .softwarereferencelist import SoftwareReferenceList
 
 
 @forge_signature
 class Spectrum(sdRDM.DataModel):
 
-    """A spectrum that is the result of processing the acquisition and a description of the process used to create it."""
+    """A spectrum that is the result of processing the acquisition and a description of the process used to create it. Must have an id attribute so that it can be referenced within the file for spectrum annotations."""
 
     id: str = Field(
         description="Unique identifier of the given object.",
@@ -70,15 +70,6 @@ class Spectrum(sdRDM.DataModel):
         xml="@numberOfDataPoints",
     )
 
-    id: str = Field(
-        ...,
-        description=(
-            "An ID for the spectrum so that it can be referenced within the file for"
-            " spectrum annotations."
-        ),
-        xml="@id",
-    )
-
     name: Optional[str] = Field(
         default=None,
         description=(
@@ -92,5 +83,5 @@ class Spectrum(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )

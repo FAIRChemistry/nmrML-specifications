@@ -6,14 +6,14 @@ from sdRDM.base.utils import forge_signature, IDGenerator
 
 
 from .software import Software
-from .softwarereference import SoftwareReference
 from .parametergroup import ParameterGroup
+from .softwarereference import SoftwareReference
 
 
 @forge_signature
 class InstrumentConfiguration(ParameterGroup):
 
-    """Description of a particular hardware configuration of a NMR spectrometer. For software configuration, use a ReferenceableParamGroup element."""
+    """Description of a particular hardware configuration of a NMR spectrometer. For software configuration, use a ReferenceableParamGroup element. Required to have an id attribute."""
 
     id: str = Field(
         description="Unique identifier of the given object.",
@@ -28,17 +28,11 @@ class InstrumentConfiguration(ParameterGroup):
         xml="softwareRef",
     )
 
-    id: str = Field(
-        ...,
-        description="An identifier for this instrument configuration.",
-        xml="@id",
-    )
-
     __repo__: Optional[str] = PrivateAttr(
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )
 
     def add_to_software_reference(

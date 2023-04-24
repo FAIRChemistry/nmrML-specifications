@@ -4,8 +4,8 @@ from pydantic import Field, PrivateAttr
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .acquisitiondimensionparameterset import AcquisitionDimensionParameterSet
 from .acquisitionparameterset import AcquisitionParameterSet
+from .acquisitiondimensionparameterset import AcquisitionDimensionParameterSet
 
 
 @forge_signature
@@ -29,5 +29,5 @@ class AcquisitionParameterSet1D(AcquisitionParameterSet):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
+        default="59a674b3af38dd54e849336756c049f42e0b18bf"
     )
