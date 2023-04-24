@@ -5,13 +5,13 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .samplingtimepoints import SamplingTimePoints
 from .hadamardparameterset import HadamardParameterSet
 from .acquisitiondimensionparameterset import AcquisitionDimensionParameterSet
-from .valuewithunit import ValueWithUnit
+from .samplingtimepoints import SamplingTimePoints
 from .acquisitionparameterset import AcquisitionParameterSet
 from .cvterm import CVTerm
 from .cvparameter import CVParameter
+from .valuewithunit import ValueWithUnit
 
 
 @forge_signature
@@ -57,7 +57,7 @@ class AcquisitionParameterSetMultiD(AcquisitionParameterSet):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="86966ee3cfc9fa75941388f3d759adb484a881f7"
+        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
     )
 
     def add_to_indirect_dimension_parameter_set(

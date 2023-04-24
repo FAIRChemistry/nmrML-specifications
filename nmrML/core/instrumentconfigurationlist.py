@@ -6,14 +6,14 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .softwarereference import SoftwareReference
 from .instrumentconfiguration import InstrumentConfiguration
+from .softwarereference import SoftwareReference
 
 
 @forge_signature
 class InstrumentConfigurationList(sdRDM.DataModel):
 
-    """List and descriptions of instrument configurations. At least one instrument configuration must be specified, even if it is only to specify that the instrument is unknown. In that case, the "instrument model" term is used to indicate the unknown instrument in the instrumentConfiguration."""
+    """List and descriptions of instrument configurations. At least one instrument configuration must be specified, even if it is only to specify that the instrument is unknown. In that case, the 'instrument model' term is used to indicate the unknown instrument in the instrumentConfiguration."""
 
     id: str = Field(
         description="Unique identifier of the given object.",
@@ -35,7 +35,7 @@ class InstrumentConfigurationList(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="86966ee3cfc9fa75941388f3d759adb484a881f7"
+        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
     )
 
     def add_to_instrument_configuration(

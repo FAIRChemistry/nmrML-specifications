@@ -6,8 +6,8 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .bond import Bond
 from .bondorder import BondOrder
+from .bond import Bond
 
 
 @forge_signature
@@ -32,7 +32,7 @@ class BondList(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="86966ee3cfc9fa75941388f3d759adb484a881f7"
+        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
     )
 
     def add_to_bond(
@@ -46,8 +46,8 @@ class BondList(sdRDM.DataModel):
 
         Args:
             id (str): Unique identifier of the 'Bond' object. Defaults to 'None'.
-            order (): The order of the bond connecting two atoms. A single bond should be "1", a double bond should be "2", a triple bond should be "3"..
-            atom_references (): Contains a list of atom IDs seperated by a space. The atom ids are the atoms connected by the bond. For example: "a1 a2". Defaults to ListPlus()
+            order (): The order of the bond connecting two atoms. A single bond should be '1', a double bond should be '2', a triple bond should be '3'..
+            atom_references (): Contains a list of atom IDs seperated by a space. The atom ids are the atoms connected by the bond. For example: 'a1 a2'. Defaults to ListPlus()
         """
 
         params = {

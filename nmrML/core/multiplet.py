@@ -5,9 +5,9 @@ from pydantic import Field, PrivateAttr
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .peaklist import PeakList
 from .atomreferences import AtomReferences
 from .cvterm import CVTerm
+from .peaklist import PeakList
 
 
 @forge_signature
@@ -60,5 +60,5 @@ class Multiplet(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="86966ee3cfc9fa75941388f3d759adb484a881f7"
+        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
     )

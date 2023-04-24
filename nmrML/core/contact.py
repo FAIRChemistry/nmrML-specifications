@@ -3,8 +3,8 @@ from typing import Optional
 from pydantic import Field, PrivateAttr
 from sdRDM.base.utils import forge_signature, IDGenerator
 
-from pydantic import EmailStr
 from pydantic import AnyUrl
+from pydantic import EmailStr
 
 from .parametergroup import ParameterGroup
 
@@ -62,5 +62,5 @@ class Contact(ParameterGroup):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="86966ee3cfc9fa75941388f3d759adb484a881f7"
+        default="e3f5163276869b6a63cd09beffbe1786e5fcf7a8"
     )
