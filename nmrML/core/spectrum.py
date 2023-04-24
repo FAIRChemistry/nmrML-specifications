@@ -5,11 +5,11 @@ from pydantic import Field, PrivateAttr
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .processingparameterset import ProcessingParameterSet
-from .softwarereferencelist import SoftwareReferenceList
-from .axiswithunit import AxisWithUnit
-from .spectrumdataarray import SpectrumDataArray
 from .processingparameterfilereferencelist import ProcessingParameterFileReferenceList
+from .spectrumdataarray import SpectrumDataArray
+from .axiswithunit import AxisWithUnit
+from .softwarereferencelist import SoftwareReferenceList
+from .processingparameterset import ProcessingParameterSet
 
 
 @forge_signature
@@ -92,5 +92,5 @@ class Spectrum(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
+        default="86966ee3cfc9fa75941388f3d759adb484a881f7"
     )

@@ -6,13 +6,13 @@ from sdRDM.base.utils import forge_signature, IDGenerator
 
 
 from .contactreferencelist import ContactReferenceList
-from .cvparameter import CVParameter
-from .cvterm import CVTerm
-from .sourcefilereference import SourceFileReference
 from .valuewithunit import ValueWithUnit
-from .pulsesequence import PulseSequence
 from .softwarereference import SoftwareReference
 from .acquisitionparameterfilereferencelist import AcquisitionParameterFileReferenceList
+from .sourcefilereference import SourceFileReference
+from .cvterm import CVTerm
+from .pulsesequence import PulseSequence
+from .cvparameter import CVParameter
 
 
 @forge_signature
@@ -132,5 +132,5 @@ class AcquisitionParameterSet(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
+        default="86966ee3cfc9fa75941388f3d759adb484a881f7"
     )

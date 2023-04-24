@@ -6,10 +6,10 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .atomreferences import AtomReferences
-from .cvterm import CVTerm
-from .multiplet import Multiplet
 from .peaklist import PeakList
+from .atomreferences import AtomReferences
+from .multiplet import Multiplet
+from .cvterm import CVTerm
 
 
 @forge_signature
@@ -37,7 +37,7 @@ class AtomAssignmentList(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="7c335cd7f4514607a6424461701c24ad7bd5d549"
+        default="86966ee3cfc9fa75941388f3d759adb484a881f7"
     )
 
     def add_to_multiplet(
