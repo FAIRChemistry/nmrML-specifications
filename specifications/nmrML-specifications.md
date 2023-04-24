@@ -3,7 +3,7 @@
 Translation of the nmrML XSD schema v1.0-rc1 to Python object model based on sdRDM.
 
 
-## Core elements
+## Objects
 
 
 ### nmrML
