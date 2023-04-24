@@ -7,13 +7,13 @@ from sdRDM.base.utils import forge_signature, IDGenerator
 
 from pydantic import AnyUrl
 
+from .sample import Sample
+from .cvparameterwithunit import CVParameterWithUnit
+from .cvterm import CVTerm
 from .fieldfrequencylock import FieldFrequencyLock
 from .additionalsolutelist import AdditionalSoluteList
-from .cvparameterwithunit import CVParameterWithUnit
-from .sample import Sample
 from .concentrationstandard import ConcentrationStandard
 from .cvparameter import CVParameter
-from .cvterm import CVTerm
 
 
 @forge_signature
@@ -38,7 +38,7 @@ class SampleList(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="59a674b3af38dd54e849336756c049f42e0b18bf"
+        default="03764412e456b4c22b9b0a9f4e2784fcfd450402"
     )
 
     def add_to_sample(

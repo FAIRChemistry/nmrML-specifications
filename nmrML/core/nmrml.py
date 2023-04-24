@@ -6,17 +6,17 @@ from sdRDM.base.utils import forge_signature, IDGenerator
 
 from pydantic import AnyUrl
 
-from .samplelist import SampleList
-from .softwarelist import SoftwareList
-from .cvlist import CVList
-from .sourcefilelist import SourceFileList
-from .filedescription import FileDescription
-from .instrumentconfigurationlist import InstrumentConfigurationList
-from .contactlist import ContactList
-from .acquisition import Acquisition
-from .referenceableparametergrouplist import ReferenceableParameterGroupList
-from .spectrumannotationlist import SpectrumAnnotationList
 from .spectrumlist import SpectrumList
+from .cvlist import CVList
+from .acquisition import Acquisition
+from .samplelist import SampleList
+from .referenceableparametergrouplist import ReferenceableParameterGroupList
+from .filedescription import FileDescription
+from .softwarelist import SoftwareList
+from .contactlist import ContactList
+from .instrumentconfigurationlist import InstrumentConfigurationList
+from .spectrumannotationlist import SpectrumAnnotationList
+from .sourcefilelist import SourceFileList
 
 
 @forge_signature
@@ -155,5 +155,5 @@ class nmrML(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="59a674b3af38dd54e849336756c049f42e0b18bf"
+        default="03764412e456b4c22b9b0a9f4e2784fcfd450402"
     )

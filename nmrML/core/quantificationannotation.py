@@ -5,9 +5,9 @@ from pydantic import PrivateAttr, Field, validator
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .spectrum import Spectrum
-from .cvterm import CVTerm
 from .quantifiedcompoundlist import QuantifiedCompoundList
+from .cvterm import CVTerm
+from .spectrum import Spectrum
 
 
 @forge_signature
@@ -49,7 +49,7 @@ class QuantificationAnnotation(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="59a674b3af38dd54e849336756c049f42e0b18bf"
+        default="03764412e456b4c22b9b0a9f4e2784fcfd450402"
     )
 
     @validator("spectrum_reference")

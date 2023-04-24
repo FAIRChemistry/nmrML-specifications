@@ -4,7 +4,6 @@ from pydantic import Field, PrivateAttr
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 from pydantic import AnyUrl
-from pydantic import EmailStr
 
 from .parametergroup import ParameterGroup
 
@@ -46,7 +45,7 @@ class Contact(ParameterGroup):
         xml="@organization",
     )
 
-    email: EmailStr = Field(
+    email: str = Field(
         ...,
         description="Email address of the contact person or organization.",
         xml="@email",
@@ -56,5 +55,5 @@ class Contact(ParameterGroup):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="59a674b3af38dd54e849336756c049f42e0b18bf"
+        default="03764412e456b4c22b9b0a9f4e2784fcfd450402"
     )

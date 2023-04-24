@@ -277,7 +277,7 @@ classDiagram
         +URL url
         +string address
         +string organization
-        +Email email*
+        +string email*
     }
     
     class ContactReference {

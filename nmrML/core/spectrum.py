@@ -6,10 +6,10 @@ from sdRDM.base.utils import forge_signature, IDGenerator
 
 
 from .processingparameterfilereferencelist import ProcessingParameterFileReferenceList
-from .axiswithunit import AxisWithUnit
-from .spectrumdataarray import SpectrumDataArray
-from .processingparameterset import ProcessingParameterSet
 from .softwarereferencelist import SoftwareReferenceList
+from .axiswithunit import AxisWithUnit
+from .processingparameterset import ProcessingParameterSet
+from .spectrumdataarray import SpectrumDataArray
 
 
 @forge_signature
@@ -83,5 +83,5 @@ class Spectrum(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="59a674b3af38dd54e849336756c049f42e0b18bf"
+        default="03764412e456b4c22b9b0a9f4e2784fcfd450402"
     )
