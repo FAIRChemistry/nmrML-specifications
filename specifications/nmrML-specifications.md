@@ -201,12 +201,12 @@ no documentation given
 
 - __atom_references__
   - Type: string
-  - Description: Contains a list of atom IDs seperated by a space. The atom ids are the atoms connected by the bond. For example: "a1 a2"
+  - Description: Contains a list of atom IDs seperated by a space. The atom ids are the atoms connected by the bond. For example: 'a1 a2'
   - Multiple: True
   - XML: @atomRefs
 - __order__
   - Type: [BondOrder](#BondOrder)
-  - Description: The order of the bond connecting two atoms. A single bond should be "1", a double bond should be "2", a triple bond should be "3".
+  - Description: The order of the bond connecting two atoms. A single bond should be '1', a double bond should be '2', a triple bond should be '3'.
   - XML: @order
 
 
@@ -901,7 +901,7 @@ Description of a particular hardware configuration of a NMR spectrometer. For so
 
 ### InstrumentConfigurationList
 
-List and descriptions of instrument configurations. At least one instrument configuration must be specified, even if it is only to specify that the instrument is unknown. In that case, the "instrument model" term is used to indicate the unknown instrument in the instrumentConfiguration.
+List and descriptions of instrument configurations. At least one instrument configuration must be specified, even if it is only to specify that the instrument is unknown. In that case, the 'instrument model' term is used to indicate the unknown instrument in the instrumentConfiguration.
 
 - __instrument_configuration__
   - Type: [InstrumentConfiguration](#InstrumentConfiguration)
