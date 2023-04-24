@@ -971,7 +971,7 @@ no documentation given
   - XML: solute
 
 
-### SamplingTimePoints(_BinaryDataArray_)
+### SamplingTimePoints [_BinaryDataArray_]
 
 sdRDM-conform implementation of the [BinaryDataArray](#BinaryDataArray) in samplingTimePoints.
 
@@ -1022,7 +1022,7 @@ Descriptions of the acquisition parameters set prior to the start of data acquis
   - Description: none given
   - XML: samplingStrategy
 - sampling_time_points
-  - Type: [SamplingTimePoints](#samplingtimepointsbinarydataarray)
+  - Type: [SamplingTimePoints](#samplingtimepoints-binarydataarray)
   - Description: The time domain for the samples. Allows for capturing off grid points and non-uniform sampling.
   - XML: samplingTimePoints
 - __decoupled__
@@ -1152,7 +1152,7 @@ no documentation given
   - XML: {Acquisition1D: acquisition1D, AcquisitionMultiD: acquisitionMultiD}
 
 
-### FIDData(_BinaryDataArray_)
+### FIDData [_BinaryDataArray_]
 
 sdRDM-conform implementation of the [BinaryDataArray](#BinaryDataArray) in fidData.
 
@@ -1171,7 +1171,7 @@ no documentation given
   - Description: Note, steady state scan is also know as dummy scan.
   - XML: acquisitionParameterSet
 - fidData
-  - Type: [FIDData](#fiddatabinarydataarray)
+  - Type: [FIDData](#fiddata-binarydataarray)
   - Description: The FID is stored here as a binary blob. Byte ordering is always little endian (Intel style). Computers using a different endian style must convert to/from little endian when writing/reading nmrML. The FID should be converted into a Complex64 array before encoding. The base64 encoded binary data. The byte order is always 'little endian'.
   - XML: fidData
 - id
@@ -1193,7 +1193,7 @@ no documentation given
   - Description: none given
   - XML: acquisitionParameterSet
 - __fid_data__
-  - Type: [FIDData](#fiddatabinarydataarray)
+  - Type: [FIDData](#fiddata-binarydataarray)
   - Description: The FID is stored here as a binary blob. Byte ordering is always little endian (Intel style). Computers using a different endian style must convert to/from little endian when writing/reading nmrML. The FID should be converted into a Complex64 array before encoding. The base64 encoded binary data. The byte order is always 'little endian'.
   - XML: fidData
 
@@ -1248,7 +1248,7 @@ Optional information about processing that was used to create the frequency doma
   - XML: dataTransformationMethod
 
 
-### SpectrumDataArray(_BinaryDataArray_)
+### SpectrumDataArray [_BinaryDataArray_]
 
 sdRDM-conform implementation of the [BinaryDataArray](#BinaryDataArray) in spectrumDataArray.
 
@@ -1271,7 +1271,7 @@ A spectrum that is the result of processing the acquisition and a description of
   - Description: none given
   - XML: processingParameterFileRefList
 - __spectrum_data_array__
-  - Type: [SpectrumDataArray](#spectrumdataarraybinarydataarray)
+  - Type: [SpectrumDataArray](#spectrumdataarray-binarydataarray)
   - Description: The 1D spectrum is represented as either a set of y-axis values at equal x-axis intervals or a set of (x,y) pairs.
   - XML: spectrumDataArray
 - __x_axis__
