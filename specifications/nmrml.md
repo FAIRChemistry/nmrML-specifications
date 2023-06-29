@@ -1,6 +1,6 @@
-# nmrML specification
+# nmrML
 
-Translation of the nmrML XSD schema v1.0-rc1 to Python object model based on sdRDM.
+Translation of the nmrML XSD schema v1.0-rc1 to Python object model based on [software-driven-rdm](https://github.com/JR-1991/software-driven-rdm).
 
 
 ## Objects
