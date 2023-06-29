@@ -6,8 +6,8 @@ from sdRDM.base.listplus import ListPlus
 from sdRDM.base.utils import forge_signature, IDGenerator
 
 
-from .acquisitionparameterfilereference import AcquisitionParameterFileReference
 from .sourcefile import SourceFile
+from .acquisitionparameterfilereference import AcquisitionParameterFileReference
 
 
 @forge_signature
@@ -34,7 +34,7 @@ class AcquisitionParameterFileReferenceList(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="03764412e456b4c22b9b0a9f4e2784fcfd450402"
+        default="c180290a7871a8ebb547eb0570a2443ecee151d0"
     )
 
     def add_to_acquisition_parameter_file_reference(

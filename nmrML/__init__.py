@@ -1,3 +1,3 @@
 
 __URL__ = "https://github.com/FAIRChemistry/nmrML-specifications.git"
-__COMMIT__ = "03764412e456b4c22b9b0a9f4e2784fcfd450402"
+__COMMIT__ = "c180290a7871a8ebb547eb0570a2443ecee151d0"

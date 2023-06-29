@@ -7,9 +7,9 @@ from sdRDM.base.utils import forge_signature, IDGenerator
 
 from pydantic import AnyUrl
 
-from .cv import CV
-from .cvterm import CVTerm
 from .compounddatabaseidentifier import CompoundDatabaseIdentifier
+from .cvterm import CVTerm
+from .cv import CV
 
 
 @forge_signature
@@ -43,7 +43,7 @@ class CompoundIdentifierList(sdRDM.DataModel):
         default="https://github.com/FAIRChemistry/nmrML-specifications.git"
     )
     __commit__: Optional[str] = PrivateAttr(
-        default="03764412e456b4c22b9b0a9f4e2784fcfd450402"
+        default="c180290a7871a8ebb547eb0570a2443ecee151d0"
     )
 
     def add_to_identifier(
